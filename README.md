@@ -18,6 +18,14 @@ COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build
 docker-compose up
 ```
 
+## Test Users
+
+| Email                  | Password |
+| ---------------------- | -------- |
+| maeva.ghennam@mail.com | 23dd56TY |
+| lalla.smith@mail.com   | 09Zs76YU |
+| ba.johnson@mail.com    | 23Z30ssd |
+
 <!--👉  reste à faire  -->
 
 I gave this test some parts of the weekend, can't give more in the week I am still in a current mission.
