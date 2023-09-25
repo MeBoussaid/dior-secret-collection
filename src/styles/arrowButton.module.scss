@@ -1,0 +1,11 @@
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  // background-color: violet;
+}
+.hovered {
+  transition: curveEaseOut 500ms;
+  transform: scale(1.1);
+}

@@ -1,0 +1,33 @@
+@import "breakpoints";
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.logoContainer {
+  margin-top: 82px;
+  display: flex;
+  justify-content: center;
+  //
+  position: relative;
+  top: -25px;
+  animation: ease-out-logo 800ms forwards;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    margin-top: 55px;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    margin-top: 49px;
+  }
+}
+@keyframes ease-out-logo {
+  from {
+    top: -25px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}

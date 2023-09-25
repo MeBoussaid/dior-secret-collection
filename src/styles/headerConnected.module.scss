@@ -1,0 +1,118 @@
+@import "breakpoints";
+
+.headerConnected {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+  }
+}
+
+.headerSup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 56px;
+  padding-right: 42px;
+  padding-left: 73px;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    padding-top: 31px;
+    padding-right: 27px;
+    padding-left: 31px;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    padding-top: 22px;
+    padding-right: 16px;
+    padding-left: 21px;
+  }
+}
+
+.logoContainer {
+  //   margin-left: 73px;
+  //   margin-top: 56px;
+}
+.headerSub {
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+}
+.headerSubInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 70vw;
+  //   background-color: aqua;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    flex-direction: column;
+    align-items: center;
+    & > :nth-child(2) {
+      align-self: flex-end;
+    }
+    width: 100vw;
+    // background-color: green;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    // background-color: blue;
+  }
+}
+
+.headerFiltersContainer {
+  display: flex;
+//   background-color: green;
+  width: 30vw;
+  justify-content: center;
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    width: 100vw;
+    // background-color: yellow;
+    justify-content: center;
+  }
+}
+
+.cartIconContainer {
+  //   margin-right: 42px;
+  //   margin-top: 51px;
+}
+
+.secretCollectionLogo {
+  margin-top: -30px;
+  width: 40vw;
+  height: 154px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //   background-color: aqua;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    margin-top: 0px;
+    width: 100vw;
+  }
+}
+.secretCollectionText {
+  font-size: 32px;
+  margin-top: 13px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  white-space: nowrap;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    font-size: 24px;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    font-size: 24px;
+    margin-top: 12px;
+  }
+}

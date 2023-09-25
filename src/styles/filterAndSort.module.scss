@@ -1,0 +1,63 @@
+.filterAndSort {
+  display: flex;
+  align-items: center;
+
+  // background-color: red;
+}
+
+.button {
+  background-color: #fff;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sortButton {
+  // background-color: aqua;
+  margin-left: 70px;
+  margin-right: 21px;
+}
+
+// ---------------
+// .filterMenu,
+// .sortMenu {
+//   background-color: #e6e6e6;
+//   border: 0.5px solid #ccc;
+//   border-radius: 4px;
+//   display: flex;
+//   flex-direction: column;
+//   position: absolute;
+//   z-index: 1;
+//   top: calc(90% - 500px);
+//   right: 100;
+// }
+
+// .filterMenu {
+//   top: 40px;
+// }
+
+// .sortMenu {
+//   top: 40px;
+// }
+
+// .filterOption,
+// .sortOption {
+//   color: #333;
+//   cursor: pointer;
+//   font-size: 16px;
+//   padding: 8px 16px;
+// }
+
+// .filterOption:hover,
+// .sortOption:hover {
+//   background-color: #f5f5f5;
+// }

@@ -1,0 +1,140 @@
+@import "breakpoints";
+@import "@/styles/_colors";
+
+.main {
+  height: 100vh;
+  width: 100vw;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    height: 60vh;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    height: 190vh;
+  }
+}
+
+.background {
+  background: url("../../public/images/EiffelBackground.png");
+  /* width of image, height height */
+  background-size: auto 97%;
+  background-repeat: no-repeat;
+  background-position: calc(100% + 50px) calc(100% + 50px);
+  height: 100%;
+  width: 100%;
+  position: relative;
+  animation: ease-out-background 800ms forwards;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    background-position: 100% 100%;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    background: url("../../public/images/EiffelBackgroundSmall.png");
+    background-size: 150% auto;
+    background-repeat: no-repeat;
+    background-position: calc(100% + 90px) 100%;
+    height: 100%;
+    width: 100%;
+    animation: none;
+  }
+}
+
+@keyframes ease-out-logo {
+  from {
+    top: -131px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes ease-out-background {
+  from {
+    background-position-x: calc(100% + 50px);
+    opacity: 0;
+  }
+  to {
+    background-position-x: 100%;
+    opacity: 1;
+  }
+}
+
+.greetingsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 273px;
+  height: 119px;
+  flex-shrink: 0;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  margin-top: 203px;
+
+  animation: ease-out-greetings 800ms forwards;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    margin-top: 165px;
+    margin-left: -70px;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    margin-top: 177px;
+    margin-left: -33px;
+  }
+}
+
+@keyframes ease-out-greetings {
+  from {
+    margin-left: 158px;
+    opacity: 0;
+  }
+  to {
+    margin-left: 220px;
+    opacity: 1;
+  }
+}
+
+// ---------
+
+.greetingsFr {
+  color: $secondary-color;
+}
+.greetingsJp {
+  font-size: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loginFormContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 325px;
+  animation: ease-out-login 800ms forwards;
+  margin-top: 30px;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    margin-top: 0px;
+    align-items: center;
+    // background-color: aqua;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    padding-left: 94px;
+  }
+}
+
+@keyframes ease-out-login {
+  from {
+    margin-top: 30px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,27 @@
+.button {
+  width: 258px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #1e1e1e 0%, #424242 100%);
+  color: #fff;
+  font-weight: 400;
+  font-family: inherit;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #333;
+  }
+
+  &:active {
+    background-color: #111;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

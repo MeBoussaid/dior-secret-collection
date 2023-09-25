@@ -1,0 +1,154 @@
+@import "breakpoints";
+
+.card {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  position: relative;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card:hover {
+  width: 99.5%;
+  height: 99.5%;
+
+  // @media (max-width: map-get($breakpoints, "iPad")) {
+  //   width: 84.7vw;
+  //   height: 49.7vw;
+  //   margin-left: 3vw;
+  //   margin-right: 3vw;
+  // }
+}
+
+.toggleContentOnHover {
+  //   background-color: red;
+  position: relative;
+}
+
+.card .initialContent {
+  opacity: 1;
+  transition: opacity 300ms ease-out;
+}
+
+.card:hover .initialContent {
+  opacity: 0;
+}
+
+.card .hoveredContent {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+.card:hover .hoveredContent {
+  opacity: 1;
+}
+
+.imageContainer {
+  //   position: relative;
+  width: 77%;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    width: 70vw;
+  }
+  //   background-color: aquamarine;
+}
+
+.image {
+  width: 97%;
+  height: 97%;
+  margin-bottom: -5px;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    width: 65%;
+    height: 65%;
+  }
+}
+
+.textContainer {
+  position: absolute;
+  //   background-color: aqua;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.productDescription {
+  color: #4b4b4b;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: normal;
+  //   background-color: beige;
+  padding: 3%;
+  width: 40%;
+  margin-bottom: 10%;
+  overflow: hidden;
+  transition: content 300ms ease-out;
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    padding-right: 5%;
+    font-size: 13px;
+  }
+}
+
+.smallProductDescription {
+  @media (min-width: map-get($breakpoints, "iPad")) {
+    font-size: 7px;
+  }
+}
+
+.productSpecifications {
+  padding-right: 3%;
+  padding-bottom: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: flex-end;
+}
+
+.productName {
+  color: #000;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  text-transform: uppercase;
+  margin-bottom: 8%;
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    font-size: 19px;
+  }
+}
+.smallProductName {
+  @media (min-width: map-get($breakpoints, "iPad")) {
+    font-size: 12px;
+  }
+}
+
+.productPrice {
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    font-size: 15px;
+  }
+}
+
+.smallProductPrice {
+  @media (min-width: map-get($breakpoints, "iPad")) {
+    font-size: 12px;
+  }
+}
