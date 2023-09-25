@@ -2,9 +2,11 @@ Hello, it is Mehdi,
 
 This is a simple Next.js app built with TypeScript For A DIOR Secret collection.
 
+Test link : https://www.figma.com/file/rw5ynf0ydAAJkcSErcJSt0/Dior-Technical-Test?type=design&node-id=0-1&mode=design&t=wq6Sy5mMhlhN816C-0
+
 ## Prerequisites
 
-you need to have docker and docker-compose installed on your machine.
+You need to have docker and docker-compose installed on your machine.
 
 ## Installation
 
@@ -30,7 +32,7 @@ docker-compose up
 
 I gave this test some parts of the weekend, can't give more in the week I am still in a current mission.
 
-So I did the biggest part, but I still have to do the following next week end if before the interview:
+So I did the biggest part, but I still have to do the following next weekend if before the interview:
 
 - cart store works => add UI in the side nav
 - take into account error and loading states in carousel
@@ -41,5 +43,5 @@ So I did the biggest part, but I still have to do the following next week end if
 - unit tests
 - remove unused imports and test components
 - fixe the tsx issues in console
-- handleResize in one "helpers" file
+- 'handleResize' in one "helpers" file
 <!-- -------------------------- -->

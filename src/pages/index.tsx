@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import Header from "@/components/header";
 import styles from "../styles/index.module.scss";
@@ -14,12 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {/* -------------- */}
-
         <div className={styles.background}>
-          {/* header */}
           <Header />
-          {/* header */}
+
           <div className={styles.greetingsContainer}>
             <span className={styles.greetingsFr}>BIENVENUE</span>
             <span className={styles.greetingsEn}>WELCOME</span>
