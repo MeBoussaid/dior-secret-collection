@@ -8,8 +8,6 @@
   height: 40vw;
   position: relative;
   padding-bottom: 10px;
-
-  // background-color: red;
   overflow-x: scroll;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
@@ -81,7 +79,6 @@
 }
 
 .addToCartButtonContainer {
-  // background-color: aqua;
   padding: 10px;
   width: 100%;
   display: flex;

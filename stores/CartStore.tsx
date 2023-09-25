@@ -34,7 +34,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
   const addItemToCart = (item: CartItem) => {
-    // console.log(item);
     setCartItems([...cartItems, item]);
   };
 
@@ -48,7 +47,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const getCartItemCount = () => {
     const count = cartItems.length;
-    console.log(count);
     return count;
   };
 
