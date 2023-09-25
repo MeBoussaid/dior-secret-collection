@@ -1,5 +1,6 @@
 FROM node:18-alpine AS deps
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat python3 make g++
+ENV PYTHON /usr/bin/python3
 WORKDIR /app
 
 COPY package.json package-lock.json ./
@@ -34,5 +35,3 @@ EXPOSE 3000
 ENV PORT 3000
 
 CMD ["npm", "start"]
-
-

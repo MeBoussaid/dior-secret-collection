@@ -25,9 +25,9 @@ const typeDefs = gql`
 `;
 
 const users = [
-  { password: "23dd56TY", email: "maeva.ghennam@nasa.gov" },
-  { password: "09Zs76YU", email: "Lalla.smith@mail.com" },
-  { password: "23Z30ssd", email: "Ba.johnson@mail.com" },
+  { email: "maeva.ghennam@mail.com", password: "23dd56TY" },
+  { email: "lalla.smith@mail.com", password: "09Zs76YU" },
+  { email: "ba.johnson@mail.com", password: "23Z30ssd" },
 ];
 
 const products = [
@@ -65,7 +65,8 @@ const products = [
 
 const resolvers = {
   Query: {
-    user: (parent: User, args: { email: string }) => {
+    // ugly any to solve
+    user: (parent: any, args: { email: string }) => {
       const user = users.find((user) => user.email === args.email);
       if (!user) {
         throw new Error("error");
