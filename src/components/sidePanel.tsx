@@ -71,6 +71,9 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
                   showsCounts
                 />
               </div>
+              {/* panel Body */}
+              <div className={styles.panelBody}>test</div>
+              {/* FIN - panel Body */}
             </div>
           </div>
         </div>
