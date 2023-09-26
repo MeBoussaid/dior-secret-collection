@@ -20,6 +20,17 @@ docker-compose build
 docker-compose up
 ```
 
+❌👉 if you face ussues after "docker-compose up" please 
+```zsh
+npm intsall
+```
+then
+```zsh
+docker-compose up
+```
+ℹ️ I am still  working on the docker file to find out the issue
+
+
 ## Test Users
 
 | Email                  | Password |
