@@ -11,7 +11,7 @@ You need to have docker and docker-compose installed on your machine.
 ## Installation
 
 ```zsh
-COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build
+docker-compose build
 ```
 
 ## Dev
