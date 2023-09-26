@@ -42,24 +42,6 @@ So I did the biggest part, but I still have to do the following next weekend if 
 - Add the missing animations in SecretCollection page
 - unit tests
 - remove unused imports and test components
-- fixe the tsx issues in console
+- ~~fixe the tsx issues in console~~
 - 'handleResize' in one "helpers" file
 <!-- -------------------------- -->
-
-## known issues
-
-~~❌👉 if you face ussues after "docker-compose up" please
-
-```zsh
-npm intsall
-```
-
-then
-
-```zsh
-docker-compose up
-```
-
-ℹ️ I am still working on the docker file to find out the issue~~
-
-issue fixed : https://stackoverflow.com/questions/72157321/docker-container-works-from-dockerfile-but-get-next-not-found-from-docker-compo

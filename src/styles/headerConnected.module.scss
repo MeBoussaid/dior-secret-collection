@@ -1,6 +1,8 @@
 @import "breakpoints";
 
 .headerConnected {
+  // background-color: aqua;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
 
@@ -15,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 56px;
+  padding-top: 35px;
   padding-right: 42px;
   padding-left: 73px;
   @media (max-width: map-get($breakpoints, "iPad")) {
@@ -71,6 +73,8 @@
 }
 
 .secretCollectionLogo {
+  background-color: transparent;
+
   margin-top: -30px;
   width: 40vw;
   height: 154px;
