@@ -1,10 +1,10 @@
 .card {
-  //   background-color: antiquewhite;
   width: 100%;
   height: 200px;
   display: flex;
   justify-content: space-between;
   overflow: visible;
+  margin-top: 30px;
 }
 
 .borderGradient {
@@ -12,7 +12,6 @@
 }
 .content {
   height: 100%;
-
   background-color: white;
   padding-right: 10px;
   margin-top: -0.5px;
@@ -79,4 +78,23 @@
 .quantityControls {
   display: flex;
   align-items: center;
+}
+.quantityButton {
+  color: #969696;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 100;
+  //   background-color: violet;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin: 2px;
+
+  .quantitySigne {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

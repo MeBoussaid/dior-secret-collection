@@ -28,25 +28,31 @@ const CartProduct: React.FC<cartProductProps> = ({
 
             {/* increase/decrease items */}
             <span className={styles.quantityControls}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 25 25"
-                fill="none"
-              >
-                <circle cx="12.5" cy="12.5" r="12" stroke="#E0E0E0" />
-              </svg>
+              <div className={styles.quantityButton}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                >
+                  <circle cx="12.5" cy="12.5" r="12" stroke="#E0E0E0" />
+                </svg>
+                <span className={styles.quantitySigne}>-</span>
+              </div>
               <span className={styles.itemsCount}>{id} item</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 25 25"
-                fill="none"
-              >
-                <circle cx="12.5" cy="12.5" r="12" stroke="#E0E0E0" />
-              </svg>
+              <div className={styles.quantityButton}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 25 25"
+                  fill="none"
+                >
+                  <circle cx="12.5" cy="12.5" r="12" stroke="#E0E0E0" />
+                </svg>
+                <span className={styles.quantitySigne}>+</span>
+              </div>
             </span>
             {/* increase/decrease items */}
           </div>
