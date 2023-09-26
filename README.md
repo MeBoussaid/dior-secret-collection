@@ -42,7 +42,7 @@ So I did the biggest part, but I still have to do the following next weekend if 
 - Add the missing animations in SecretCollection page
 - unit tests
 - remove unused imports and test components
-- fixe the tsx issues in console
+- ~~fixe the tsx issues in console~~
 - 'handleResize' in one "helpers" file
 <!-- -------------------------- -->
 
