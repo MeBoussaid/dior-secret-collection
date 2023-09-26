@@ -3,6 +3,7 @@ import styles from "../styles/sidePanel.module.scss";
 import { useCart } from "../../stores/CartStore";
 import CartIcon from "./icons/cartIcon";
 import { breakpoints } from "../styles/breakpoints";
+import CartProduct from "./cartProduct";
 
 interface SidePanelProps {
   isOpen: boolean;
@@ -72,7 +73,14 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
                 />
               </div>
               {/* panel Body */}
-              <div className={styles.panelBody}>test</div>
+              <div className={styles.panelBody}>
+                <CartProduct
+                  name={"Men Shirt"}
+                  price={"19 000 €"}
+                  imageLink={"/img3.png"}
+                  id={"1"}
+                />
+              </div>
               {/* FIN - panel Body */}
             </div>
           </div>
