@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: flex-end;
   width: 100vw;
-  height: 40vw;
+  height: 37vw;
   position: relative;
   padding-bottom: 10px;
   overflow-x: scroll;
@@ -19,7 +19,7 @@
 
 .currentDiv {
   width: 45vw;
-  height: 29vw;
+  height: 25vw;
   padding: 10px;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
