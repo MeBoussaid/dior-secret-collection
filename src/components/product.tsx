@@ -21,11 +21,10 @@ const Product: React.FC<ProductProps> = ({
 }) => {
   return (
     <div className={styles.card}>
-      {/*  */}
       <div className={styles.imageContainer}>
         <img src={imageSrc} alt="Product Image" className={styles.image} />
       </div>
-      {/*  */}
+
       <div className={styles.textContainer}>
         <div className={styles.productDescription}>
           <div className={styles.toggleContentOnHover}>

@@ -6,7 +6,8 @@
   width: 100vw;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
-    height: 60vh;
+    min-height: 60vh;
+    overflow: visible;
   }
 
   @media (max-width: map-get($breakpoints, "iPhone")) {
@@ -121,7 +122,6 @@
   @media (max-width: map-get($breakpoints, "iPad")) {
     margin-top: 0px;
     align-items: center;
-    // background-color: aqua;
   }
   @media (max-width: map-get($breakpoints, "iPhone")) {
     padding-left: 94px;

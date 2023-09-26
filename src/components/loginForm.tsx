@@ -7,7 +7,6 @@ import { useQuery, gql } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useLogin } from "../../stores/LoginStore";
 
-
 const GET_USER_QUERY = gql`
   query GetUser($email: String!) {
     user(email: $email) {
@@ -31,7 +30,6 @@ function LoginForm() {
 
   function handleLoginClick() {
     if (!error && data && data.user) {
-      console.log(data.user.email);
       setLoggedIn(true);
       router.push("/secretCollection");
     } else {

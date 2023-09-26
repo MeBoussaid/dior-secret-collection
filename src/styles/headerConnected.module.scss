@@ -31,10 +31,6 @@
   }
 }
 
-.logoContainer {
-  //   margin-left: 73px;
-  //   margin-top: 56px;
-}
 .headerSub {
   display: flex;
   justify-content: flex-end;
@@ -45,7 +41,7 @@
   justify-content: space-between;
   align-items: end;
   width: 70vw;
-  //   background-color: aqua;
+
   @media (max-width: map-get($breakpoints, "iPad")) {
     flex-direction: column;
     align-items: center;
@@ -53,7 +49,6 @@
       align-self: flex-end;
     }
     width: 100vw;
-    // background-color: green;
   }
 
   @media (max-width: map-get($breakpoints, "iPhone")) {
@@ -61,26 +56,18 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    // background-color: blue;
   }
 }
 
 .headerFiltersContainer {
   display: flex;
-//   background-color: green;
   width: 30vw;
   justify-content: center;
 
   @media (max-width: map-get($breakpoints, "iPhone")) {
     width: 100vw;
-    // background-color: yellow;
     justify-content: center;
   }
-}
-
-.cartIconContainer {
-  //   margin-right: 42px;
-  //   margin-top: 51px;
 }
 
 .secretCollectionLogo {
@@ -91,7 +78,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //   background-color: aqua;
   @media (max-width: map-get($breakpoints, "iPad")) {
   }
 
