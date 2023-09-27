@@ -8,11 +8,11 @@ https://main.ds8lkanha4tdu.amplifyapp.com/
 
 ## Test Users
 
-| Email                  | Password |
-| ---------------------- | -------- |
-| maeva.ghennam@mail.com | 23dd56TY |
-| lalla.smith@mail.com   | 09Zs76YU |
-| ba.johnson@mail.com    | 23Z30ssd |
+| Email         | Password |
+| ------------- | -------- |
+| eva@mail.com  | 23dd56TY |
+| lola@mail.com | 09Zs76YU |
+| ben@mail.com  | 23Z30ssd |
 
 ## Link test/design by Dior
 
