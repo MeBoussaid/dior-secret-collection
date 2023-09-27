@@ -5,7 +5,7 @@ import React from "react";
 interface cartProductProps {
   id: string;
   name: string;
-  price: number;
+  price: string;
   imageLink: string;
 }
 
