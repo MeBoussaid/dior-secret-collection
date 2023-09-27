@@ -14,7 +14,7 @@ https://main.ds8lkanha4tdu.amplifyapp.com/
 | lalla.smith@mail.com   | 09Zs76YU |
 | ba.johnson@mail.com    | 23Z30ssd |
 
-## Link design by Dior
+## Link test/design by Dior
 
 Test link : https://www.figma.com/file/rw5ynf0ydAAJkcSErcJSt0/Dior-Technical-Test?type=design&node-id=0-1&mode=design&t=wq6Sy5mMhlhN816C-0
 
