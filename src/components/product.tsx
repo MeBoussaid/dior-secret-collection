@@ -3,6 +3,7 @@ import React from "react";
 import styles from "../styles/product.module.scss";
 
 interface ProductProps {
+  id: string;
   name: string;
   price: string;
   description: string;
@@ -12,6 +13,7 @@ interface ProductProps {
 }
 
 const Product: React.FC<ProductProps> = ({
+  id,
   name,
   price,
   description,

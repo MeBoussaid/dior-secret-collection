@@ -34,7 +34,7 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
     <>
       {isOpen && (
         <div className={styles.overlay} onClick={handleCloseClick}>
-          <div className={`${styles.panel} ${styles.open}`}>
+          <div className={styles.panel}>
             <div className={styles.content}>
               <div className={styles.panelHeader}>
                 {/* close button */}

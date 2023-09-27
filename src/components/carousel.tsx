@@ -51,6 +51,7 @@ const Carousel: React.FC = () => {
     data &&
     data.products.map((product: ProductData, index: number) => (
       <Product
+        id={product.id}
         key={product.id}
         name={product.name}
         price={product.price}
