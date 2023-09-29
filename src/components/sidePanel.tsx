@@ -12,6 +12,9 @@ interface SidePanelProps {
 }
 
 const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
+  const { setIsSidePanelOpen, items } = useCart();
+  console.log(items);
+
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -24,7 +27,7 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  const { setIsSidePanelOpen } = useCart();
+
   const handleCloseClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();

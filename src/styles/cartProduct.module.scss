@@ -1,3 +1,5 @@
+@import "breakpoints";
+
 .card {
   width: 100%;
   height: 200px;
@@ -5,6 +7,13 @@
   justify-content: space-between;
   overflow: visible;
   margin-top: 30px;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    width: 100%;
+    height: 200px;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    height: 130px;
+  }
 }
 
 .borderGradient {
@@ -21,12 +30,26 @@
 .imgContainer {
   width: 150px;
   display: flex;
-  //   background-color: brown;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    width: 150px;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    width: 100px;
+  }
+  // background-color: brown;
 }
 
 .img {
   width: 100%;
   height: auto;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    width: 100%;
+    height: auto;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .productSpecs {
@@ -45,12 +68,24 @@
   text-transform: uppercase;
   font-style: normal;
   font-weight: 100;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    font-size: 20px;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    font-size: 15px;
+  }
 }
 
 .price {
   font-size: 15px;
   font-style: normal;
   font-weight: 100;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    font-size: 15px;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    font-size: 13px;
+  }
 }
 .deleteContainer {
   padding-top: 30%;
@@ -60,6 +95,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    padding-top: 26%;
+    width: 40px;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    padding-top: 25%;
+  }
   // background-color: salmon;
 }
 .deleteButton {
@@ -73,6 +115,12 @@
   text-transform: uppercase;
   margin-left: 2px;
   margin-right: 2px;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    font-size: 17px;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    font-size: 15px;
+  }
 }
 
 .quantityControls {
