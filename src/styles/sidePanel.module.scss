@@ -28,7 +28,7 @@
   transform-origin: bottom left;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
-    width: 300px;
+    width: 60%;
   }
   @media (max-width: map-get($breakpoints, "iPhone")) {
     width: 95%;
