@@ -13,7 +13,7 @@ interface SidePanelProps {
 
 const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
   const { setIsSidePanelOpen, items } = useCart();
-  console.log(items);
+  // console.log(items);
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
