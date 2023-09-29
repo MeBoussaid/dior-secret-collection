@@ -4,6 +4,7 @@ import { useCart } from "../../stores/CartStore";
 import CartIcon from "./icons/cartIcon";
 import { breakpoints } from "../styles/breakpoints";
 import CartProduct from "./cartProduct";
+import Button from "./button";
 
 interface SidePanelProps {
   isOpen: boolean;
@@ -73,13 +74,49 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
                 />
               </div>
               {/* panel Body */}
+
               <div className={styles.panelBody}>
-                <CartProduct
-                  name={"Men Shirt"}
-                  price={"19 000 €"}
-                  imageLink={"/img3.png"}
-                  id={"1"}
-                />
+                <div className={styles.fadeoutEffect}>
+                  <div className={styles.productsContainer}>
+                    <CartProduct
+                      name={"Men Shirt"}
+                      price={"19 000 €"}
+                      imageLink={"/img3.png"}
+                      id={"1"}
+                    />
+                    <CartProduct
+                      name={"Men Shirt"}
+                      price={"19 000 €"}
+                      imageLink={"/img3.png"}
+                      id={"1"}
+                    />
+                    <CartProduct
+                      name={"Men Shirt"}
+                      price={"19 000 €"}
+                      imageLink={"/img3.png"}
+                      id={"1"}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.checkoutSummery}>
+                  <div className={styles.taxeAndSum}>
+                    <div className={styles.taxe}>
+                      <div className={styles.label}>Taxes</div>
+                      <div>200 €</div>
+                    </div>
+                    <div className={styles.sum}>
+                      <div className={styles.label}>Total</div>
+                      <div>1000 €</div>
+                    </div>
+                  </div>
+                  <Button
+                    text={"Go to checkout"}
+                    onClick={() => {
+                      console.log("checkout");
+                    }}
+                  />
+                </div>
               </div>
               {/* FIN - panel Body */}
             </div>
