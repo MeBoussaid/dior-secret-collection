@@ -1,6 +1,6 @@
 Hello, it is Mehdi,
 
-This is a simple Next.js app built with TypeScript For A DIOR Secret collection.
+This is a simple Next.js app built with TypeScript For "DIOR Secret Collection"
 
 ## Live demo
 
@@ -14,7 +14,7 @@ https://main.ds8lkanha4tdu.amplifyapp.com/
 | lola@mail.com | 09Zs76YU |
 | ben@mail.com  | 23Z30ssd |
 
-## Link test/design by Dior
+## Link test/design by DIOR
 
 Test link : https://www.figma.com/file/rw5ynf0ydAAJkcSErcJSt0/Dior-Technical-Test?type=design&node-id=0-1&mode=design&t=wq6Sy5mMhlhN816C-0
 

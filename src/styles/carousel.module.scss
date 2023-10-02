@@ -8,7 +8,6 @@
   height: 37vw;
   position: relative;
   padding-bottom: 10px;
-  overflow-x: scroll;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
     height: 80vw;
