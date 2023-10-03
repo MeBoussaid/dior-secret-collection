@@ -26,12 +26,32 @@
   text-align: center;
   transform: skew(-7deg);
   transform-origin: bottom left;
+  filter: drop-shadow(-4px 0px 4px rgba(0, 0, 0, 0.25));
+
+  animation: ease-out-sidePanel 800ms forwards;
+
+  &.panel--open {
+    margin-right: 0;
+    transform: skew(-7deg) translateX(-100%);
+    transform-origin: bottom left;
+  }
 
   @media (max-width: map-get($breakpoints, "iPad")) {
     width: 60%;
   }
   @media (max-width: map-get($breakpoints, "iPhone")) {
     width: 95%;
+  }
+}
+
+@keyframes ease-out-sidePanel {
+  from {
+    transform: skew(-7deg) translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: skew(-7deg) translateX(0%);
+    opacity: 1;
   }
 }
 
