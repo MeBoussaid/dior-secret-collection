@@ -1,12 +1,21 @@
-import styles from "../styles/cartProduct.module.scss";
-
 import React from "react";
+import styles from "../styles/cartProduct.module.scss";
+import { formatPrice } from "@/helpers/helpers";
+import { CartItem } from "@/communTypes/communTypes";
+
+// interface CartItem {
+//   id: string;
+//   name: string;
+//   price: number;
+// }
 
 interface cartProductProps {
   id: string;
   name: string;
-  price: string;
+  price: number;
   imageLink: string;
+  numberOfSameProduct: number;
+  item: CartItem;
 }
 
 const CartProduct: React.FC<cartProductProps> = ({
@@ -14,7 +23,10 @@ const CartProduct: React.FC<cartProductProps> = ({
   name,
   price,
   imageLink,
+  numberOfSameProduct,
+  item,
 }) => {
+  const formattedPrice = formatPrice(price);
   return (
     <div className={styles.card}>
       <div className={styles.borderGradient}>
@@ -24,7 +36,7 @@ const CartProduct: React.FC<cartProductProps> = ({
           </div>
           <div className={styles.productSpecs}>
             <span className={styles.name}>{name}</span>
-            <span className={styles.price}>{price}</span>
+            <span className={styles.price}>{formattedPrice}</span>
 
             {/* increase/decrease items */}
             <span className={styles.quantityControls}>
@@ -40,7 +52,10 @@ const CartProduct: React.FC<cartProductProps> = ({
                 </svg>
                 <span className={styles.quantitySigne}>-</span>
               </div>
-              <span className={styles.itemsCount}>{id} item</span>
+              <span className={styles.itemsCount}>
+                {numberOfSameProduct}{" "}
+                {numberOfSameProduct > 1 ? "items" : "item"}
+              </span>
               <div className={styles.quantityButton}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

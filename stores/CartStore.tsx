@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from "react";
 
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-}
+import { CartItem } from "@/communTypes/communTypes";
+// interface CartItem {
+//   id: string;
+//   name: string;
+//   price: number;
+// }
 
 interface CartContextType {
   items: CartItem[];
@@ -13,7 +14,8 @@ interface CartContextType {
   clearCart: () => void;
   isSidePanelOpen: boolean;
   setIsSidePanelOpen: (isOpen: boolean) => void;
-  getCartItemCount: () => number;
+  getCartItemsCount: () => number;
+  getSameItemCount: (itemId: string) => number;
 }
 
 const CartContext = createContext<CartContextType>({
@@ -23,7 +25,8 @@ const CartContext = createContext<CartContextType>({
   clearCart: () => {},
   isSidePanelOpen: false,
   setIsSidePanelOpen: () => {},
-  getCartItemCount: () => 0,
+  getCartItemsCount: () => 0,
+  getSameItemCount: () => 0,
 });
 
 export function useCart() {
@@ -33,6 +36,7 @@ export function useCart() {
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+
   const addItemToCart = (item: CartItem) => {
     setCartItems([...cartItems, item]);
   };
@@ -45,8 +49,20 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCartItems([]);
   };
 
-  const getCartItemCount = () => {
+  const getCartItemsCount = () => {
     const count = cartItems.length;
+    return count;
+  };
+
+  const getSameItemCount = (itemId: string) => {
+    const itemCounts = cartItems.reduce<{ [id: string]: number }>(
+      (counts, item) => {
+        counts[item.id] = (counts[item.id] || 0) + 1;
+        return counts;
+      },
+      {}
+    );
+    const count = itemCounts[itemId] || 0;
     return count;
   };
 
@@ -59,7 +75,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         clearCart,
         isSidePanelOpen,
         setIsSidePanelOpen,
-        getCartItemCount,
+        getCartItemsCount,
+        getSameItemCount,
       }}
     >
       {children}

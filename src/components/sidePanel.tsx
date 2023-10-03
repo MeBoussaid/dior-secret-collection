@@ -10,11 +10,22 @@ interface SidePanelProps {
   isOpen: boolean;
   onClose: () => void;
 }
+interface item {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  descriptionOnHover: string;
+  imageSrc: string;
+  quantity: number;
+}
 
 const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
-  const { setIsSidePanelOpen, items } = useCart();
-  // console.log(items);
-
+  const { setIsSidePanelOpen, items, getSameItemCount } = useCart();
+  // --------------
+  console.debug(items);
+  getSameItemCount("1");
+  console.log(getSameItemCount("1"));
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -34,6 +45,46 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
     }
   };
 
+  // cette logique doit etre sipmlifiée
+  // const itemCounts = items.reduce((counts, item) => {
+  //   counts[item.id] = (counts[item.id] || 0) + 1;
+  //   return counts;
+  // }, {});
+
+  // const itemMap = items.reduce((map, item) => {
+  //   if (!map[item.id]) {
+  //     map[item.id] = item;
+  //   }
+  //   return map;
+  // }, {});
+
+  // const cartProducts = Object.values(itemMap).map((item) => (
+  //   <CartProduct
+  //     key={item.id}
+  //     name={item.name}
+  //     price={item.price}
+  //     imageLink={item.imageSrc}
+  //     id={item.id}
+  //     numberOfSameProduct={itemCounts[item.id]}
+  //   />
+  // ));
+  const cartItemsById = items.reduce<{ [id: string]: item }>((items, item) => {
+    items[item.id] = { ...item, quantity: 1 };
+    return items;
+  }, {});
+  const uniqueCartItems = Object.values(cartItemsById);
+
+  const cartProducts = uniqueCartItems.map((item) => (
+    <CartProduct
+      key={item.id}
+      name={item.name}
+      price={item.price}
+      imageLink={item.imageSrc}
+      id={item.id}
+      numberOfSameProduct={getSameItemCount(item.id)}
+      item={item}
+    />
+  ));
   return (
     <>
       {isOpen && (
@@ -80,26 +131,7 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
 
               <div className={styles.panelBody}>
                 <div className={styles.fadeoutEffect}>
-                  <div className={styles.productsContainer}>
-                    <CartProduct
-                      name={"Men Shirt"}
-                      price={"19 000 €"}
-                      imageLink={"/img3.png"}
-                      id={"1"}
-                    />
-                    <CartProduct
-                      name={"Men Shirt"}
-                      price={"19 000 €"}
-                      imageLink={"/img3.png"}
-                      id={"1"}
-                    />
-                    <CartProduct
-                      name={"Men Shirt"}
-                      price={"19 000 €"}
-                      imageLink={"/img3.png"}
-                      id={"1"}
-                    />
-                  </div>
+                  <div className={styles.productsContainer}>{cartProducts}</div>
                 </div>
 
                 <div className={styles.checkoutSummery}>

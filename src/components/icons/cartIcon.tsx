@@ -15,12 +15,12 @@ const CartIcon: React.FC<SvgIconProps> = ({
   isClickable = false,
   showsCounts = false,
 }) => {
-  const { setIsSidePanelOpen, getCartItemCount } = useCart();
+  const { setIsSidePanelOpen, getCartItemsCount } = useCart();
   const handleCartClick = () => {
     isClickable && setIsSidePanelOpen(true);
   };
 
-  const cartItemsCount = getCartItemCount();
+  const cartItemsCount = getCartItemsCount();
 
   if (size === "small") {
     return (

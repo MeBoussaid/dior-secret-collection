@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "../styles/carousel.module.scss";
 import ArrowButton from "./arrowButton";
 import AddToCartButton from "./addToCartButton";
