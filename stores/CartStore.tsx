@@ -12,6 +12,7 @@ interface CartContextType {
   setIsSidePanelOpen: (isOpen: boolean) => void;
   getCartItemsCount: () => number;
   getSameItemCount: (itemId: string) => number;
+  getTotalPrices: () => { totalPrice: number; taxes: number };
 }
 
 const CartContext = createContext<CartContextType>({
@@ -24,6 +25,7 @@ const CartContext = createContext<CartContextType>({
   setIsSidePanelOpen: () => {},
   getCartItemsCount: () => 0,
   getSameItemCount: () => 0,
+  getTotalPrices: () => ({ totalPrice: 0, taxes: 0 }),
 });
 
 export function useCart() {
@@ -71,6 +73,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const count = itemCounts[itemId] || 0;
     return count;
   };
+  const getTotalPrices = () => {
+    const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+    // si on parle de la TVA 20% en France
+    const taxes = totalPrice * 0.2;
+    return { totalPrice, taxes };
+  };
 
   return (
     <CartContext.Provider
@@ -84,6 +92,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         setIsSidePanelOpen,
         getCartItemsCount,
         getSameItemCount,
+        getTotalPrices,
       }}
     >
       {children}

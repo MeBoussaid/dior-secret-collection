@@ -5,6 +5,7 @@ import CartIcon from "./icons/cartIcon";
 import { breakpoints } from "../styles/breakpoints";
 import CartProduct from "./cartProduct";
 import Button from "./button";
+import { formatPrice } from "@/helpers/helpers";
 
 interface SidePanelProps {
   isOpen: boolean;
@@ -21,8 +22,11 @@ interface item {
 }
 
 const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
-  const { setIsSidePanelOpen, items, getSameItemCount } = useCart();
+  const { setIsSidePanelOpen, items, getSameItemCount, getTotalPrices } =
+    useCart();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  const { totalPrice, taxes } = getTotalPrices();
 
   useEffect(() => {
     const handleResize = () => {
@@ -114,11 +118,11 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
                     <div className={styles.taxeAndSum}>
                       <div className={styles.taxe}>
                         <div className={styles.label}>Taxes</div>
-                        <div>200 €</div>
+                        <div>{formatPrice(taxes)}</div>
                       </div>
                       <div className={styles.sum}>
                         <div className={styles.label}>Total</div>
-                        <div>1000 €</div>
+                        <div>{formatPrice(totalPrice)}</div>
                       </div>
                     </div>
                     <Button
