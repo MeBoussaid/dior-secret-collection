@@ -83,9 +83,12 @@
 
 .productsContainer {
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   padding-bottom: 70px;
   padding-top: 30px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .fadeoutEffect {
   height: 60%;
