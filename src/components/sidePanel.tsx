@@ -11,15 +11,15 @@ interface SidePanelProps {
   isOpen: boolean;
   onClose: () => void;
 }
-interface item {
+type item = {
   id: string;
   name: string;
   price: number;
-  description: string;
-  descriptionOnHover: string;
-  imageSrc: string;
-  quantity: number;
-}
+  quantity?: number;
+  description?: string;
+  descriptionOnHover?: string;
+  imageSrc?: string;
+};
 
 const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
   const { setIsSidePanelOpen, items, getSameItemCount, getTotalPrices } =
@@ -56,7 +56,7 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
       key={item.id}
       name={item.name}
       price={item.price}
-      imageLink={item.imageSrc}
+      imageLink={item.imageSrc ? item.imageSrc : ""}
       id={item.id}
       numberOfSameProduct={getSameItemCount(item.id)}
       item={item}

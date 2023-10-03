@@ -12,7 +12,7 @@ import Product from "./product";
 interface ProductData {
   id: string;
   name: string;
-  price: string;
+  price: number;
   description: string;
   descriptionOnHover: string;
   imageSrc: string;
