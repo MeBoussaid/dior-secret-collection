@@ -22,10 +22,6 @@ interface item {
 
 const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
   const { setIsSidePanelOpen, items, getSameItemCount } = useCart();
-  // --------------
-  console.debug(items);
-  getSameItemCount("1");
-  console.log(getSameItemCount("1"));
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -45,29 +41,6 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  // cette logique doit etre sipmlifiée
-  // const itemCounts = items.reduce((counts, item) => {
-  //   counts[item.id] = (counts[item.id] || 0) + 1;
-  //   return counts;
-  // }, {});
-
-  // const itemMap = items.reduce((map, item) => {
-  //   if (!map[item.id]) {
-  //     map[item.id] = item;
-  //   }
-  //   return map;
-  // }, {});
-
-  // const cartProducts = Object.values(itemMap).map((item) => (
-  //   <CartProduct
-  //     key={item.id}
-  //     name={item.name}
-  //     price={item.price}
-  //     imageLink={item.imageSrc}
-  //     id={item.id}
-  //     numberOfSameProduct={itemCounts[item.id]}
-  //   />
-  // ));
   const cartItemsById = items.reduce<{ [id: string]: item }>((items, item) => {
     items[item.id] = { ...item, quantity: 1 };
     return items;
@@ -129,30 +102,36 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
               </div>
               {/* panel Body */}
 
-              <div className={styles.panelBody}>
-                <div className={styles.fadeoutEffect}>
-                  <div className={styles.productsContainer}>{cartProducts}</div>
-                </div>
-
-                <div className={styles.checkoutSummery}>
-                  <div className={styles.taxeAndSum}>
-                    <div className={styles.taxe}>
-                      <div className={styles.label}>Taxes</div>
-                      <div>200 €</div>
-                    </div>
-                    <div className={styles.sum}>
-                      <div className={styles.label}>Total</div>
-                      <div>1000 €</div>
+              {items.length ? (
+                <div className={styles.panelBody}>
+                  <div className={styles.fadeoutEffect}>
+                    <div className={styles.productsContainer}>
+                      {cartProducts}
                     </div>
                   </div>
-                  <Button
-                    text={"Go to checkout"}
-                    onClick={() => {
-                      console.log("checkout");
-                    }}
-                  />
+
+                  <div className={styles.checkoutSummery}>
+                    <div className={styles.taxeAndSum}>
+                      <div className={styles.taxe}>
+                        <div className={styles.label}>Taxes</div>
+                        <div>200 €</div>
+                      </div>
+                      <div className={styles.sum}>
+                        <div className={styles.label}>Total</div>
+                        <div>1000 €</div>
+                      </div>
+                    </div>
+                    <Button
+                      text={"Go to checkout"}
+                      onClick={() => {
+                        console.log("checkout");
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className={styles.emptyCart}>Your cart is empty </div>
+              )}
               {/* FIN - panel Body */}
             </div>
           </div>

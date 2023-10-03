@@ -1,16 +1,12 @@
 import { createContext, useContext, useState } from "react";
 
-import { CartItem } from "@/communTypes/communTypes";
-// interface CartItem {
-//   id: string;
-//   name: string;
-//   price: number;
-// }
+import { CartItem } from "@/commonTypes/commonTypes";
 
 interface CartContextType {
   items: CartItem[];
   addItem: (item: CartItem) => void;
-  removeItem: (itemId: string) => void;
+  removeItemsById: (itemId: string) => void;
+  removeOneItemById: (itemId: string) => void;
   clearCart: () => void;
   isSidePanelOpen: boolean;
   setIsSidePanelOpen: (isOpen: boolean) => void;
@@ -21,7 +17,8 @@ interface CartContextType {
 const CartContext = createContext<CartContextType>({
   items: [],
   addItem: () => {},
-  removeItem: () => {},
+  removeItemsById: () => {},
+  removeOneItemById: () => {},
   clearCart: () => {},
   isSidePanelOpen: false,
   setIsSidePanelOpen: () => {},
@@ -41,8 +38,17 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCartItems([...cartItems, item]);
   };
 
-  const removeItemFromCart = (itemId: string) => {
+  const removeItemsById = (itemId: string) => {
     setCartItems(cartItems.filter((item) => item.id !== itemId));
+  };
+
+  const removeOneItemById = (itemId: string) => {
+    const existingItemIndex = cartItems.findIndex((item) => item.id === itemId);
+    if (existingItemIndex !== -1) {
+      const newCartItems = [...cartItems];
+      newCartItems.splice(existingItemIndex, 1);
+      setCartItems(newCartItems);
+    }
   };
 
   const clearCart = () => {
@@ -71,7 +77,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       value={{
         items: cartItems,
         addItem: addItemToCart,
-        removeItem: removeItemFromCart,
+        removeItemsById,
+        removeOneItemById,
         clearCart,
         isSidePanelOpen,
         setIsSidePanelOpen,

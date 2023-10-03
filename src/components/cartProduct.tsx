@@ -1,13 +1,8 @@
 import React from "react";
 import styles from "../styles/cartProduct.module.scss";
 import { formatPrice } from "@/helpers/helpers";
-import { CartItem } from "@/communTypes/communTypes";
-
-// interface CartItem {
-//   id: string;
-//   name: string;
-//   price: number;
-// }
+import { CartItem } from "@/commonTypes/commonTypes";
+import { useCart } from "../../stores/CartStore";
 
 interface cartProductProps {
   id: string;
@@ -26,6 +21,7 @@ const CartProduct: React.FC<cartProductProps> = ({
   numberOfSameProduct,
   item,
 }) => {
+  const { addItem, removeItemsById, removeOneItemById } = useCart();
   const formattedPrice = formatPrice(price);
   return (
     <div className={styles.card}>
@@ -40,7 +36,13 @@ const CartProduct: React.FC<cartProductProps> = ({
 
             {/* increase/decrease items */}
             <span className={styles.quantityControls}>
-              <div className={styles.quantityButton}>
+              {/* remove button  */}
+              <div
+                className={styles.quantityButton}
+                onClick={() => {
+                  removeOneItemById(item.id);
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -52,11 +54,18 @@ const CartProduct: React.FC<cartProductProps> = ({
                 </svg>
                 <span className={styles.quantitySigne}>-</span>
               </div>
+              {/* FIN - remove button  */}
               <span className={styles.itemsCount}>
                 {numberOfSameProduct}{" "}
                 {numberOfSameProduct > 1 ? "items" : "item"}
               </span>
-              <div className={styles.quantityButton}>
+              {/* add button */}
+              <div
+                className={styles.quantityButton}
+                onClick={() => {
+                  addItem(item);
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -68,13 +77,19 @@ const CartProduct: React.FC<cartProductProps> = ({
                 </svg>
                 <span className={styles.quantitySigne}>+</span>
               </div>
+              {/* END - add button */}
             </span>
             {/* increase/decrease items */}
           </div>
         </div>
       </div>
       <div className={styles.deleteContainer}>
-        <div className={styles.deleteButton}>
+        <div
+          className={styles.deleteButton}
+          onClick={() => {
+            removeItemsById(item.id);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
