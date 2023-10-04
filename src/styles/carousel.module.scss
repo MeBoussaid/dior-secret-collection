@@ -8,6 +8,7 @@
   height: 37vw;
   position: relative;
   padding-bottom: 10px;
+  // background-color: red;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
     height: 80vw;
@@ -78,6 +79,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  // background-color: violet;
 }
 
 .loading {
