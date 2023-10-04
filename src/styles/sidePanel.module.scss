@@ -18,12 +18,13 @@
   width: 500px;
   height: 100%;
   background-color: #ffffff;
-  padding: 32px;
+  // padding: 32px;
+  // background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: end;
+  // text-align: center;
   transform: skew(-7deg);
   transform-origin: bottom left;
   filter: drop-shadow(-4px 0px 4px rgba(0, 0, 0, 0.25));
@@ -59,18 +60,19 @@
   transform: skew(7deg);
   transform-origin: bottom left;
   height: 100%;
-  width: 70%;
-  margin-right: -25%;
+  width: 75%;
+  padding-bottom: 15%;
+  // margin-right: -35%;
   display: flex;
   flex-direction: column;
 
   // background-color: aqua;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
-    width: 80%;
+    width: 65%;
   }
   @media (max-width: map-get($breakpoints, "iPhone")) {
-    width: 75%;
+    width: 70%;
   }
 }
 
@@ -78,7 +80,18 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
-  padding-top: 10px;
+  // same as header connected
+  padding-top: 35px;
+  padding-right: 42px;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    padding-top: 31px;
+    padding-right: 27px;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    padding-top: 22px;
+    padding-right: 16px;
+  }
 }
 
 .closeIcon {
@@ -92,6 +105,8 @@
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 10px;
+  padding-right: 20px;
+  padding-top: 25px;
 }
 
 .emptyCart {
