@@ -97,6 +97,12 @@
 .closeIcon {
   cursor: pointer;
 }
+.closeIcon svg {
+  transition: transform 0.2s ease-in-out;
+}
+.closeIcon:hover svg {
+  transform: scale(1.2);
+}
 
 .panelBody {
   // background-color: antiquewhite;

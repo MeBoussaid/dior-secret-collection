@@ -25,8 +25,8 @@ const ArrowButton: React.FC<arrowButtonProps> = ({ direction, onClick }) => {
     <div className={styles.arrowContainer} onClick={handleClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="69"
-        height="139"
+        width="50"
+        height="90"
         viewBox="0 0 69 139"
         fill="none"
         onMouseEnter={handleMouseEnter}
