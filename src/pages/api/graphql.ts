@@ -12,7 +12,7 @@ const typeDefs = gql`
   type Product {
     id: ID!
     name: String!
-    price: String!
+    price: Float!
     description: String!
     descriptionOnHover: String!
     imageSrc: String!
@@ -34,7 +34,7 @@ const products = [
   {
     id: "1",
     name: "MEN SHIRT",
-    price: "19 000 €",
+    price: 19000,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     descriptionOnHover:
@@ -44,7 +44,7 @@ const products = [
   {
     id: "2",
     name: "LADY BAG",
-    price: "3 000 €",
+    price: 3000,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     descriptionOnHover:
@@ -54,7 +54,7 @@ const products = [
   {
     id: "3",
     name: "DIOR JEWELERY",
-    price: "100 000 €",
+    price: 100000,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     descriptionOnHover:

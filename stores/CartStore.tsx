@@ -1,29 +1,31 @@
 import { createContext, useContext, useState } from "react";
 
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-}
+import { CartItem } from "@/commonTypes/commonTypes";
 
 interface CartContextType {
   items: CartItem[];
   addItem: (item: CartItem) => void;
-  removeItem: (itemId: string) => void;
+  removeItemsById: (itemId: string) => void;
+  removeOneItemById: (itemId: string) => void;
   clearCart: () => void;
   isSidePanelOpen: boolean;
   setIsSidePanelOpen: (isOpen: boolean) => void;
-  getCartItemCount: () => number;
+  getCartItemsCount: () => number;
+  getSameItemCount: (itemId: string) => number;
+  getTotalPrices: () => { totalPrice: number; taxes: number };
 }
 
 const CartContext = createContext<CartContextType>({
   items: [],
   addItem: () => {},
-  removeItem: () => {},
+  removeItemsById: () => {},
+  removeOneItemById: () => {},
   clearCart: () => {},
   isSidePanelOpen: false,
   setIsSidePanelOpen: () => {},
-  getCartItemCount: () => 0,
+  getCartItemsCount: () => 0,
+  getSameItemCount: () => 0,
+  getTotalPrices: () => ({ totalPrice: 0, taxes: 0 }),
 });
 
 export function useCart() {
@@ -33,21 +35,49 @@ export function useCart() {
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+
   const addItemToCart = (item: CartItem) => {
     setCartItems([...cartItems, item]);
   };
 
-  const removeItemFromCart = (itemId: string) => {
+  const removeItemsById = (itemId: string) => {
     setCartItems(cartItems.filter((item) => item.id !== itemId));
+  };
+
+  const removeOneItemById = (itemId: string) => {
+    const existingItemIndex = cartItems.findIndex((item) => item.id === itemId);
+    if (existingItemIndex !== -1) {
+      const newCartItems = [...cartItems];
+      newCartItems.splice(existingItemIndex, 1);
+      setCartItems(newCartItems);
+    }
   };
 
   const clearCart = () => {
     setCartItems([]);
   };
 
-  const getCartItemCount = () => {
+  const getCartItemsCount = () => {
     const count = cartItems.length;
     return count;
+  };
+
+  const getSameItemCount = (itemId: string) => {
+    const itemCounts = cartItems.reduce<{ [id: string]: number }>(
+      (counts, item) => {
+        counts[item.id] = (counts[item.id] || 0) + 1;
+        return counts;
+      },
+      {}
+    );
+    const count = itemCounts[itemId] || 0;
+    return count;
+  };
+  const getTotalPrices = () => {
+    const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+    // si on parle de la TVA 20% en France
+    const taxes = totalPrice * 0.2;
+    return { totalPrice, taxes };
   };
 
   return (
@@ -55,11 +85,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       value={{
         items: cartItems,
         addItem: addItemToCart,
-        removeItem: removeItemFromCart,
+        removeItemsById,
+        removeOneItemById,
         clearCart,
         isSidePanelOpen,
         setIsSidePanelOpen,
-        getCartItemCount,
+        getCartItemsCount,
+        getSameItemCount,
+        getTotalPrices,
       }}
     >
       {children}

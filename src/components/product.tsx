@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styles from "../styles/product.module.scss";
+import { formatPrice } from "@/helpers/helpers";
 
 interface ProductProps {
   id: string;
   name: string;
-  price: string;
+  price: number;
   description: string;
   descriptionOnHover: string;
   imageSrc: string;
@@ -21,6 +22,7 @@ const Product: React.FC<ProductProps> = ({
   imageSrc,
   isPrevOrNext,
 }) => {
+  const formattedPrice = formatPrice(price);
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
@@ -60,7 +62,7 @@ const Product: React.FC<ProductProps> = ({
               isPrevOrNext ? styles.smallProductPrice : ""
             }`}
           >
-            {price}
+            {formattedPrice}
           </div>
         </div>
       </div>

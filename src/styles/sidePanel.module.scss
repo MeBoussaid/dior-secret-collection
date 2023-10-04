@@ -18,14 +18,24 @@
   width: 500px;
   height: 100%;
   background-color: #ffffff;
-  padding: 32px;
+  // padding: 32px;
+  // background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: end;
+  // text-align: center;
   transform: skew(-7deg);
   transform-origin: bottom left;
+  filter: drop-shadow(-4px 0px 4px rgba(0, 0, 0, 0.25));
+
+  animation: ease-out-sidePanel 800ms forwards;
+
+  &.panel--open {
+    margin-right: 0;
+    transform: skew(-7deg) translateX(-100%);
+    transform-origin: bottom left;
+  }
 
   @media (max-width: map-get($breakpoints, "iPad")) {
     width: 60%;
@@ -35,22 +45,34 @@
   }
 }
 
+@keyframes ease-out-sidePanel {
+  from {
+    transform: skew(-7deg) translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: skew(-7deg) translateX(0%);
+    opacity: 1;
+  }
+}
+
 .content {
   transform: skew(7deg);
   transform-origin: bottom left;
   height: 100%;
-  width: 70%;
-  margin-right: -25%;
+  width: 75%;
+  padding-bottom: 15%;
+  // margin-right: -35%;
   display: flex;
   flex-direction: column;
 
   // background-color: aqua;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
-    width: 80%;
+    width: 65%;
   }
   @media (max-width: map-get($breakpoints, "iPhone")) {
-    width: 75%;
+    width: 70%;
   }
 }
 
@@ -58,10 +80,28 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
+  // same as header connected
+  padding-top: 35px;
+  padding-right: 42px;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    padding-top: 31px;
+    padding-right: 27px;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    padding-top: 22px;
+    padding-right: 16px;
+  }
 }
 
 .closeIcon {
   cursor: pointer;
+}
+.closeIcon svg {
+  transition: transform 0.2s ease-in-out;
+}
+.closeIcon:hover svg {
+  transform: scale(1.2);
 }
 
 .panelBody {
@@ -70,13 +110,26 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-top: 25px;
+}
+
+.emptyCart {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .productsContainer {
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   padding-bottom: 70px;
   padding-top: 30px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .fadeoutEffect {
   height: 60%;
@@ -119,6 +172,7 @@
 
   justify-content: flex-end;
   text-align: end;
+  font-weight: 300;
 }
 
 .taxe {
@@ -127,10 +181,12 @@
   justify-content: space-between;
   text-transform: uppercase;
   font-size: 17px;
+  font-weight: 100;
 }
 .sum {
   display: flex;
   justify-content: space-between;
   text-transform: uppercase;
   font-size: 25px;
+  font-weight: 100;
 }

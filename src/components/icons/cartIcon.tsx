@@ -1,5 +1,5 @@
 import React from "react";
-
+import styles from "../../styles/cartIcon.module.scss";
 import { useCart } from "../../../stores/CartStore";
 
 interface SvgIconProps {
@@ -15,25 +15,25 @@ const CartIcon: React.FC<SvgIconProps> = ({
   isClickable = false,
   showsCounts = false,
 }) => {
-  const { setIsSidePanelOpen, getCartItemCount } = useCart();
+  const { setIsSidePanelOpen, getCartItemsCount } = useCart();
   const handleCartClick = () => {
     isClickable && setIsSidePanelOpen(true);
   };
 
-  const cartItemsCount = getCartItemCount();
+  const cartItemsCount = getCartItemsCount();
 
   if (size === "small") {
     return (
       <div
         onClick={handleCartClick}
+        className={styles.cartIconContainer}
         style={{
           cursor: isClickable ? "pointer" : "default",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
         }}
       >
-        {showsCounts && <span>{cartItemsCount}</span>}
+        {showsCounts && (
+          <span className={styles.itemsCount}>{cartItemsCount}</span>
+        )}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="29"
@@ -72,10 +72,12 @@ const CartIcon: React.FC<SvgIconProps> = ({
         cursor: isClickable ? "pointer" : "default",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "end",
       }}
     >
-      {showsCounts && <span>{cartItemsCount}</span>}
+      {showsCounts && (
+        <span className={styles.itemsCount}>{cartItemsCount}</span>
+      )}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="48"

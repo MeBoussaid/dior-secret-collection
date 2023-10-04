@@ -1,12 +1,16 @@
-import styles from "../styles/cartProduct.module.scss";
-
 import React from "react";
+import styles from "../styles/cartProduct.module.scss";
+import { formatPrice } from "@/helpers/helpers";
+import { CartItem } from "@/commonTypes/commonTypes";
+import { useCart } from "../../stores/CartStore";
 
 interface cartProductProps {
   id: string;
   name: string;
-  price: string;
+  price: number;
   imageLink: string;
+  numberOfSameProduct: number;
+  item: CartItem;
 }
 
 const CartProduct: React.FC<cartProductProps> = ({
@@ -14,52 +18,83 @@ const CartProduct: React.FC<cartProductProps> = ({
   name,
   price,
   imageLink,
+  numberOfSameProduct,
+  item,
 }) => {
+  const { addItem, removeItemsById, removeOneItemById } = useCart();
+  const formattedPrice = formatPrice(price);
   return (
-    <div className={styles.card}>
-      <div className={styles.borderGradient}>
-        <div className={styles.content}>
-          <div className={styles.imgContainer}>
-            <img className={styles.img} src={imageLink} alt={name} />
-          </div>
-          <div className={styles.productSpecs}>
-            <span className={styles.name}>{name}</span>
-            <span className={styles.price}>{price}</span>
+    <div className={styles.cardContainer}>
+      {/* ----------- card content -------- */}
+      <div className={styles.card}>
+        <div className={styles.borderGradient}>
+          <div className={styles.content}>
+            <div className={styles.imgContainer}>
+              <img className={styles.img} src={imageLink} alt={name} />
+            </div>
+            <div className={styles.productSpecs}>
+              <span className={styles.name}>{name}</span>
+              <span className={styles.price}>{formattedPrice}</span>
 
-            {/* increase/decrease items */}
-            <span className={styles.quantityControls}>
-              <div className={styles.quantityButton}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 25 25"
-                  fill="none"
+              {/* increase/decrease items */}
+              <span className={styles.quantityControls}>
+                {/* remove button  */}
+                <div
+                  className={styles.quantityButton}
+                  onClick={() => {
+                    removeOneItemById(item.id);
+                  }}
                 >
-                  <circle cx="12.5" cy="12.5" r="12" stroke="#E0E0E0" />
-                </svg>
-                <span className={styles.quantitySigne}>-</span>
-              </div>
-              <span className={styles.itemsCount}>{id} item</span>
-              <div className={styles.quantityButton}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 25 25"
-                  fill="none"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 25 25"
+                    fill="none"
+                  >
+                    <circle cx="12.5" cy="12.5" r="12" stroke="#E0E0E0" />
+                  </svg>
+                  <span className={styles.quantitySigne}>-</span>
+                </div>
+                {/* FIN - remove button  */}
+                <span className={styles.itemsCount}>
+                  {numberOfSameProduct}{" "}
+                  {numberOfSameProduct > 1 ? "items" : "item"}
+                </span>
+                {/* add button */}
+                <div
+                  className={styles.quantityButton}
+                  onClick={() => {
+                    addItem(item);
+                  }}
                 >
-                  <circle cx="12.5" cy="12.5" r="12" stroke="#E0E0E0" />
-                </svg>
-                <span className={styles.quantitySigne}>+</span>
-              </div>
-            </span>
-            {/* increase/decrease items */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 25 25"
+                    fill="none"
+                  >
+                    <circle cx="12.5" cy="12.5" r="12" stroke="#E0E0E0" />
+                  </svg>
+                  <span className={styles.quantitySigne}>+</span>
+                </div>
+                {/* END - add button */}
+              </span>
+              {/* increase/decrease items */}
+            </div>
           </div>
         </div>
       </div>
+      {/* ----------- card content -------- */}
+      {/* -------- delete btn container--------- */}
       <div className={styles.deleteContainer}>
-        <div className={styles.deleteButton}>
+        <div
+          className={styles.deleteButton}
+          onClick={() => {
+            removeItemsById(item.id);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -88,6 +123,7 @@ const CartProduct: React.FC<cartProductProps> = ({
           </svg>
         </div>
       </div>
+      {/* -------- delete btn container--------- */}
     </div>
   );
 };
