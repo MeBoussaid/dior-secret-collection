@@ -117,8 +117,8 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
                   </div>
 
                   <div className={styles.checkoutSummery}>
-                    <div className={styles.taxeAndSum}>
-                      <div className={styles.taxe}>
+                    <div className={styles.taxAndSum}>
+                      <div className={styles.tax}>
                         <div className={styles.label}>Taxes</div>
                         <div>{formatPrice(taxes)}</div>
                       </div>
@@ -127,7 +127,11 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
                         <div>{formatPrice(totalPrice)}</div>
                       </div>
                     </div>
-                    <Button text={"Go to checkout"} onClick={() => {}} />
+                    <Button
+                      text={"Go to checkout"}
+                      onClick={() => {}}
+                      isRounder
+                    />
                   </div>
                 </div>
               ) : (
