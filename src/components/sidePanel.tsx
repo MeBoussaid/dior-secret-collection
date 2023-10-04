@@ -127,12 +127,7 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
                         <div>{formatPrice(totalPrice)}</div>
                       </div>
                     </div>
-                    <Button
-                      text={"Go to checkout"}
-                      onClick={() => {
-                        console.log("checkout");
-                      }}
-                    />
+                    <Button text={"Go to checkout"} onClick={() => {}} />
                   </div>
                 </div>
               ) : (

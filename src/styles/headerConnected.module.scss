@@ -1,11 +1,8 @@
 @import "breakpoints";
 
 .headerConnected {
-  // background-color: aqua;
-  // background-color: transparent;
   display: flex;
   flex-direction: column;
-
   @media (max-width: map-get($breakpoints, "iPad")) {
   }
 
