@@ -1,6 +1,9 @@
 @import "breakpoints";
 
 .headerConnected {
+  // background-color: red;
+  height: 20vh;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   @media (max-width: map-get($breakpoints, "iPad")) {
@@ -17,6 +20,7 @@
   padding-top: 35px;
   padding-right: 42px;
   padding-left: 73px;
+  // background-color: turquoise;
   @media (max-width: map-get($breakpoints, "iPad")) {
     padding-top: 31px;
     padding-right: 27px;
@@ -88,7 +92,7 @@
   }
 }
 .secretCollectionText {
-  font-size: 32px;
+  font-size: 28px;
   margin-top: 13px;
   font-style: normal;
   font-weight: 200;

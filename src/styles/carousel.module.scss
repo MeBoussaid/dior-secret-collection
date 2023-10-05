@@ -5,9 +5,10 @@
   justify-content: space-between;
   align-items: flex-end;
   width: 100vw;
-  height: 37vw;
+  height: 65vh;
   position: relative;
   padding-bottom: 10px;
+  // background-color: azure;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
     height: 80vw;
@@ -85,6 +86,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  // background-color: turquoise;
+  height: 15vh;
 }
 
 .loading {
