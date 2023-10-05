@@ -45,9 +45,10 @@ const Carousel: React.FC = () => {
   const handleNextClick = () => {
     setCurrentItemIndex((currentItemIndex + 1) % products.length);
   };
-  const { loading, error, data } = useQuery(GET_PRODUCTS, { client });
+  const { error, data } = useQuery(GET_PRODUCTS, { client });
 
   const products =
+    !error &&
     data &&
     data.products.map((product: ProductData, index: number) => (
       <Product
@@ -63,15 +64,20 @@ const Carousel: React.FC = () => {
     ));
   return (
     <div>
-      {products && products.length > 0 ? (
+      {!error && products && products.length > 0 ? (
         <>
           <div className={styles.carousel}>
+            {/* chevron left  */}
             {currentItemIndex > 0 && (
               <div className={`${styles.button} ${styles.buttonPrevious}`}>
                 <ArrowButton direction="previous" onClick={handlePrevClick} />
               </div>
             )}
-            {/* prevous dive */}
+            {/* chevron left  */}
+
+            {/* ---------------------------- */}
+
+            {/* previous dive */}
             <div className={styles.prevOrNextDivContainer}>
               {currentItemIndex > 0 && (
                 <div className={styles.prevOrNextDiv}>
@@ -79,14 +85,12 @@ const Carousel: React.FC = () => {
                 </div>
               )}
             </div>
-            {/* prevous dive */}
+            {/* previous dive */}
 
             {/* current dive */}
-
             <div className={styles.currentDiv}>
               {products[currentItemIndex]}
             </div>
-
             {/* current dive */}
 
             {/* next div */}
@@ -98,13 +102,19 @@ const Carousel: React.FC = () => {
               )}
             </div>
             {/* next div */}
-            {/* </div> */}
+
+            {/* ---------------------------- */}
+
+            {/* chevron right  */}
             {currentItemIndex < products.length - 1 && (
               <div className={`${styles.button} ${styles.buttonNext}`}>
                 <ArrowButton direction="next" onClick={handleNextClick} />
               </div>
             )}
+            {/* chevron right  */}
           </div>
+
+          {/* add to cart button  */}
           <div className={styles.addToCartButtonContainer}>
             <AddToCartButton
               onClick={() => {
@@ -114,12 +124,20 @@ const Carousel: React.FC = () => {
               }}
             />
           </div>
+          {/* add to cart button  */}
         </>
       ) : (
         <div className={styles.loading}>
           <p>Loading ..</p>
         </div>
       )}
+
+      {error && (
+        <div className={styles.error}>
+          <p>Something went wrong</p>
+        </div>
+      )}
+
       <SidePanel
         isOpen={isSidePanelOpen}
         onClose={() => setIsSidePanelOpen(false)}
