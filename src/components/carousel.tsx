@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/carousel.module.scss";
 import ArrowButton from "./arrowButton";
 import AddToCartButton from "./addToCartButton";
@@ -77,7 +77,25 @@ const Carousel: React.FC = () => {
         isPrevOrNext={index !== currentItemIndex}
       />
     ));
-  console.log(products);
+
+  // to detect the current product in mobile version
+  const [visibleProductIndex, setVisibleProductIndex] = useState(0);
+  const productRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleMobileAddToCartClick = () => {
+    const visibleProductIndex = productRefs.current.findIndex((productRef) => {
+      if (productRef) {
+        const { left, right } = productRef.getBoundingClientRect();
+        return left <= window.innerWidth / 2 && right >= window.innerWidth / 2;
+      }
+      return false;
+    });
+    setVisibleProductIndex(visibleProductIndex);
+    const currentProduct = products[visibleProductIndex].props;
+    addItem(currentProduct);
+  };
+
+  // to detect the current product in mobile version
   return (
     <div>
       {!error && products && products.length > 0 ? (
@@ -85,8 +103,14 @@ const Carousel: React.FC = () => {
           <div className={styles.carousel}>
             {isMobile ? (
               <div className={styles.mobileContainer}>
-                {products.map((product: React.ReactNode) => (
-                  <div className={styles.productMobileContainer}>{product}</div>
+                {products.map((product: React.ReactNode, index) => (
+                  <div
+                    className={styles.productMobileContainer}
+                    key={product.id}
+                    ref={(el) => (productRefs.current[index] = el)}
+                  >
+                    {product}
+                  </div>
                 ))}
               </div>
             ) : (
@@ -147,8 +171,13 @@ const Carousel: React.FC = () => {
           <div className={styles.addToCartButtonContainer}>
             <AddToCartButton
               onClick={() => {
-                const currentProduct = products[currentItemIndex].props;
-                addItem(currentProduct);
+                if (isMobile) {
+                  handleMobileAddToCartClick();
+                } else {
+                  const currentProduct = products[currentItemIndex].props;
+                  addItem(currentProduct);
+                }
+
                 setIsSidePanelOpen(true);
               }}
             />
