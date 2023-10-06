@@ -5,7 +5,7 @@ import styles from "../styles/headerConnected.module.scss";
 import TheKey from "@/components/icons/theKey";
 import { breakpoints } from "../styles/breakpoints";
 
-// import FilterAndSort from "@/components/filterAndSort";
+import FilterAndSort from "@/components/filterAndSort";
 
 const HeaderConnected: React.FC = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -45,9 +45,9 @@ const HeaderConnected: React.FC = () => {
             </span>
           </div>
 
-          {/* <div className={styles.headerFiltersContainer}>
+          <div className={styles.headerFiltersContainer}>
             <FilterAndSort filterOptions={["1", "2"]} />
-          </div> */}
+          </div>
         </div>
       </div>
     </header>

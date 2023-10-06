@@ -27,10 +27,10 @@ const FilterAndSort: React.FC<Props> = ({ filterOptions }) => {
 
   return (
     <div className={styles.filterAndSort}>
-      <button className={styles.button} onClick={toggleFilterMenu}>
+      <span className={styles.button} onClick={toggleFilterMenu}>
         <FiltersIcon />
         Filters
-      </button>
+      </span>
       {/* {showFilterMenu && (
         <div className={styles.filterMenu}>
           {filterOptions.map((option) => (
@@ -40,13 +40,10 @@ const FilterAndSort: React.FC<Props> = ({ filterOptions }) => {
           ))}
         </div>
       )} */}
-      <button
-        className={`${styles.button} ${styles.sortButton}`}
-        onClick={toggleSortMenu}
-      >
+      <span className={styles.button} onClick={toggleSortMenu}>
         <SortIcon />
         Sort
-      </button>
+      </span>
       {/* {showSortMenu && (
         <div className={styles.sortMenu}>
           {sortOptions.map((option) => (

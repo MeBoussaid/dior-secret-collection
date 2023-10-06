@@ -1,13 +1,35 @@
+@import "breakpoints";
+
 .filterAndSort {
   display: flex;
   align-items: center;
+  // background-color: aqua;
+  font-weight: 200;
+  width: 100%;
+  padding-right: 100px;
+  padding-left: 50px;
+  justify-content: space-between;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    margin-top: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    margin-top: 20px;
+    padding-right: 45px;
+    padding-left: 45px;
+  }
 }
 
 .button {
-  background-color: #fff;
+  background-color: transparent;
+  // background-color: red;
   font-size: 23px;
-  font-style: normal;
-  font-weight: 300;
+
+  margin-bottom: 2px;
+  font-weight: 200;
   line-height: normal;
   cursor: pointer;
   text-transform: uppercase;
@@ -17,11 +39,14 @@
   align-items: center;
   justify-content: center;
   position: relative;
-}
 
-.sortButton {
-  margin-left: 70px;
-  margin-right: 21px;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    font-size: 20px;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    font-size: 17px;
+  }
 }
 
 // ---------------

@@ -186,13 +186,13 @@ const Carousel: React.FC = () => {
         </>
       ) : (
         <div className={styles.loading}>
-          <p>Loading ..</p>
+          <p>Loading ...</p>
         </div>
       )}
 
       {error && (
         <div className={styles.error}>
-          <p>Something went wrong</p>
+          <p>Sorry, Something went wrong !</p>
         </div>
       )}
 
