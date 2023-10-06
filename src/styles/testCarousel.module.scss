@@ -1,0 +1,173 @@
+@import "breakpoints";
+
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100vw;
+  height: 65vh;
+  position: relative;
+  padding-bottom: 10px;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    height: 60vw;
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    height: 70vw;
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+// mobile and tablet
+.mobileContainer {
+  display: flex;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    height: 35vh;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    height: 25vh;
+  }
+}
+
+.productMobileContainer {
+  padding: 10px;
+  display: flex;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    width: 90vw;
+  }
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    width: 95vw;
+  }
+}
+
+// FIN - mobile and tablet
+
+.currentDiv {
+  width: 45vw;
+  height: 25vw;
+  padding: 10px;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    width: 90vw;
+    height: 50vw;
+  }
+}
+
+.prevOrNextDivContainer {
+  width: calc(45vw / 2);
+  height: calc(25vw / 2);
+  padding: 10px;
+  filter: blur(1px);
+  opacity: 0.5;
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    filter: none;
+    opacity: 1;
+    width: 85vw;
+    height: 50vw;
+  }
+}
+.prevOrNextDiv {
+  width: 100%;
+  height: 100%;
+}
+
+// .currentDiv,
+// .prevOrNextDivContainer,
+// .prevOrNextDiv {
+//   transition: width 1s ease-in-out, height 1s ease-in-out,
+//     padding 1s ease-in-out;
+// }
+
+.button {
+  width: 100px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    display: none;
+  }
+}
+
+.buttonPrevious {
+  position: absolute;
+  top: 0;
+  left: 5vw;
+
+  @media (max-width: map-get($breakpoints, "iPad")) {
+    display: none;
+  }
+}
+.buttonNext {
+  position: absolute;
+  top: 0;
+  right: 5vw;
+}
+
+.addToCartButtonContainer {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  // background-color: turquoise;
+  height: 15vh;
+  position: relative;
+  bottom: -30px;
+  animation: ease-out-addToCart-button 900ms forwards;
+  animation: ease-out-addToCart-button 900ms forwards;
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    height: 20vh;
+  }
+}
+
+.headerFiltersContainer {
+  display: flex;
+  width: 30vw;
+  justify-content: center;
+
+  position: relative;
+  bottom: -30px;
+  animation: ease-out-addToCart-button 900ms forwards;
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    width: 100vw;
+    justify-content: center;
+  }
+}
+
+@keyframes ease-out-addToCart-button {
+  from {
+    bottom: -30px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+.loading {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.error {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// test ici

@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import HeaderConnected from "@/components/headerConnected";
 import Carousel from "@/components/carousel";
+import TestCarousel from "@/components/testCarousel";
 
 const SecretCollection: React.FC = () => {
   return (
@@ -12,7 +13,8 @@ const SecretCollection: React.FC = () => {
 
       <main>
         <HeaderConnected />
-        <Carousel></Carousel>
+        {/* <Carousel></Carousel> */}
+        <TestCarousel></TestCarousel>
       </main>
     </>
   );
