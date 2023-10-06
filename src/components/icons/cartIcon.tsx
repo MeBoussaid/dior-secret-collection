@@ -31,7 +31,7 @@ const CartIcon: React.FC<SvgIconProps> = ({
           cursor: isClickable ? "pointer" : "default",
         }}
       >
-        {showsCounts && (
+        {showsCounts && cartItemsCount != 0 && (
           <span className={styles.itemsCount}>{cartItemsCount}</span>
         )}
         <svg
@@ -75,7 +75,7 @@ const CartIcon: React.FC<SvgIconProps> = ({
         alignItems: "end",
       }}
     >
-      {showsCounts && (
+      {showsCounts && cartItemsCount != 0 && (
         <span className={styles.itemsCount}>{cartItemsCount}</span>
       )}
       <svg

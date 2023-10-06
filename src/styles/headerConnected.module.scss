@@ -1,15 +1,19 @@
 @import "breakpoints";
 
 .headerConnected {
-  // background-color: aqua;
-  // background-color: transparent;
+  // background-color: red;
+  height: 20vh;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
+    height: 35vh;
   }
 
   @media (max-width: map-get($breakpoints, "iPhone")) {
+    // background-color: turquoise;
+    height: 35vh;
   }
 }
 
@@ -20,6 +24,11 @@
   padding-top: 35px;
   padding-right: 42px;
   padding-left: 73px;
+  //
+  position: relative;
+  top: -30px;
+  animation: ease-out-logo-connected 900ms forwards;
+  // background-color: turquoise;
   @media (max-width: map-get($breakpoints, "iPad")) {
     padding-top: 31px;
     padding-right: 27px;
@@ -32,6 +41,16 @@
     padding-left: 21px;
   }
 }
+@keyframes ease-out-logo-connected {
+  from {
+    top: -30px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
 
 .headerSub {
   display: flex;
@@ -41,7 +60,7 @@
 .headerSubInner {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   width: 70vw;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
@@ -49,6 +68,7 @@
     align-items: center;
     & > :nth-child(2) {
       align-self: flex-end;
+      width: 40vw;
     }
     width: 100vw;
   }
@@ -56,8 +76,10 @@
   @media (max-width: map-get($breakpoints, "iPhone")) {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100vw;
+    & > :nth-child(2) {
+      align-self: flex-end;
+      width: 100vw;
+    }
   }
 }
 
@@ -66,22 +88,41 @@
   width: 30vw;
   justify-content: center;
 
+  position: relative;
+  bottom: -30px;
+  animation: ease-out-filters 900ms forwards;
+
   @media (max-width: map-get($breakpoints, "iPhone")) {
     width: 100vw;
     justify-content: center;
   }
 }
 
+@keyframes ease-out-filters {
+  from {
+    bottom: -30px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
 .secretCollectionLogo {
   background-color: transparent;
+  // background-color: aqua;
 
   margin-top: -30px;
   width: 40vw;
   height: 154px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
+  //
+  position: relative;
+  top: -30px;
+  animation: ease-out-collection-logo 900ms forwards;
   @media (max-width: map-get($breakpoints, "iPad")) {
   }
 
@@ -90,8 +131,19 @@
     width: 100vw;
   }
 }
+
+@keyframes ease-out-collection-logo {
+  from {
+    top: -30px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
 .secretCollectionText {
-  font-size: 32px;
+  font-size: 28px;
   margin-top: 13px;
   font-style: normal;
   font-weight: 200;
