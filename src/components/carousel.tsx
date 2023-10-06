@@ -103,15 +103,16 @@ const Carousel: React.FC = () => {
           <div className={styles.carousel}>
             {isMobile ? (
               <div className={styles.mobileContainer}>
-                {products.map((product: React.ReactNode, index: number) => (
-                  <div
-                    className={styles.productMobileContainer}
-                    key={product.id}
-                    ref={(el) => (productRefs.current[index] = el)}
-                  >
-                    {product}
-                  </div>
-                ))}
+                {products &&
+                  products.map((product: React.ReactNode, index: number) => (
+                    <div
+                      className={styles.productMobileContainer}
+                      key={index}
+                      ref={(el) => (productRefs.current[index] = el)}
+                    >
+                      {product}
+                    </div>
+                  ))}
               </div>
             ) : (
               <>
