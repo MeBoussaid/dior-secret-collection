@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/arrowButton.module.scss";
 
 interface arrowButtonProps {
@@ -7,7 +7,7 @@ interface arrowButtonProps {
 }
 
 const ArrowButton: React.FC<arrowButtonProps> = ({ direction, onClick }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);

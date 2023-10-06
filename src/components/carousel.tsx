@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/carousel.module.scss";
 import ArrowButton from "./arrowButton";
 import AddToCartButton from "./addToCartButton";
 import SidePanel from "@/components/sidePanel";
 import client from "../../graphql/apolloClient";
 import { useQuery, gql } from "@apollo/client";
-
 import { useCart } from "../../stores/CartStore";
 import Product from "./product";
 import { breakpoints } from "@/styles/breakpoints";
@@ -33,9 +32,9 @@ const GET_PRODUCTS = gql`
 `;
 
 const Carousel: React.FC = () => {
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < parseInt(breakpoints.iPad));
     };
@@ -50,7 +49,7 @@ const Carousel: React.FC = () => {
 
   const { addItem, setIsSidePanelOpen, isSidePanelOpen } = useCart();
 
-  const [currentItemIndex, setCurrentItemIndex] = React.useState(0);
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
   const handlePrevClick = () => {
     setCurrentItemIndex(
