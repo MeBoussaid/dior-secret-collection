@@ -8,6 +8,7 @@ import { useQuery, gql } from "@apollo/client";
 
 import { useCart } from "../../stores/CartStore";
 import Product from "./product";
+import { breakpoints } from "@/styles/breakpoints";
 
 interface ProductData {
   id: string;
@@ -32,6 +33,21 @@ const GET_PRODUCTS = gql`
 `;
 
 const Carousel: React.FC = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < parseInt(breakpoints.iPad));
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const { addItem, setIsSidePanelOpen, isSidePanelOpen } = useCart();
 
   const [currentItemIndex, setCurrentItemIndex] = React.useState(0);
@@ -62,56 +78,70 @@ const Carousel: React.FC = () => {
         isPrevOrNext={index !== currentItemIndex}
       />
     ));
+  console.log(products);
   return (
     <div>
       {!error && products && products.length > 0 ? (
         <>
           <div className={styles.carousel}>
-            {/* chevron left  */}
-            {currentItemIndex > 0 && (
-              <div className={`${styles.button} ${styles.buttonPrevious}`}>
-                <ArrowButton direction="previous" onClick={handlePrevClick} />
+            {isMobile ? (
+              <div className={styles.mobileContainer}>
+                {products.map((product: React.ReactNode) => (
+                  <div className={styles.productMobileContainer}>{product}</div>
+                ))}
               </div>
-            )}
-            {/* chevron left  */}
+            ) : (
+              <>
+                {/* chevron left  */}
+                {currentItemIndex > 0 && (
+                  <div className={`${styles.button} ${styles.buttonPrevious}`}>
+                    <ArrowButton
+                      direction="previous"
+                      onClick={handlePrevClick}
+                    />
+                  </div>
+                )}
+                {/* chevron left  */}
 
-            {/* ---------------------------- */}
+                {/* ---------------------------- */}
 
-            {/* previous dive */}
-            <div className={styles.prevOrNextDivContainer}>
-              {currentItemIndex > 0 && (
-                <div className={styles.prevOrNextDiv}>
-                  {products[currentItemIndex - 1]}
+                {/* previous dive */}
+                <div className={styles.prevOrNextDivContainer}>
+                  {currentItemIndex > 0 && (
+                    <div className={styles.prevOrNextDiv}>
+                      {products[currentItemIndex - 1]}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-            {/* previous dive */}
+                {/* previous dive */}
 
-            {/* current dive */}
-            <div className={styles.currentDiv}>
-              {products[currentItemIndex]}
-            </div>
-            {/* current dive */}
-
-            {/* next div */}
-            <div className={styles.prevOrNextDivContainer}>
-              {currentItemIndex < products.length - 1 && (
-                <div className={styles.prevOrNextDiv}>
-                  {products[currentItemIndex + 1]}
+                {/* current dive */}
+                <div className={styles.currentDiv}>
+                  {products[currentItemIndex]}
                 </div>
-              )}
-            </div>
-            {/* next div */}
+                {/* current dive */}
 
-            {/* ---------------------------- */}
+                {/* next div */}
+                <div className={styles.prevOrNextDivContainer}>
+                  {currentItemIndex < products.length - 1 && (
+                    <div className={styles.prevOrNextDiv}>
+                      {products[currentItemIndex + 1]}
+                    </div>
+                  )}
+                </div>
+                {/* next div */}
 
-            {/* chevron right  */}
-            {currentItemIndex < products.length - 1 && (
-              <div className={`${styles.button} ${styles.buttonNext}`}>
-                <ArrowButton direction="next" onClick={handleNextClick} />
-              </div>
+                {/* ---------------------------- */}
+
+                {/* chevron right  */}
+                {currentItemIndex < products.length - 1 && (
+                  <div className={`${styles.button} ${styles.buttonNext}`}>
+                    <ArrowButton direction="next" onClick={handleNextClick} />
+                  </div>
+                )}
+                {/* chevron right  */}
+              </>
             )}
-            {/* chevron right  */}
           </div>
 
           {/* add to cart button  */}
