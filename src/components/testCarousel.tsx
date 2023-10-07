@@ -99,12 +99,14 @@ const TestCarousel: React.FC = () => {
   const [offset, setOffset] = useState(0);
 
   const handleTestNextClick = () => {
-    console.log("offset", offset);
     setOffset(offset - 30);
+    console.log("offset NextClick", offset);
   };
 
   const handleTestPreviousClick = () => {
     setOffset(offset + 30);
+    console.log("offset", offset);
+    console.log("offset PreviousClick", offset);
   };
   //  tests ici
   // to detect the current product in mobile version
@@ -112,64 +114,97 @@ const TestCarousel: React.FC = () => {
     <div>
       {!error && products && products.length > 0 ? (
         <>
-          // test ici
-          <>
-            <div>
-              {/* cotainer of divs */}
-              <div
-                className={styles.divsContainer}
-                style={{
-                  backgroundColor: "pink",
-                  width: "100vw",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  transform: `translateX(${offset + 30}vw)`,
-                  transition: "transform 0.5s ease-in-out",
-                }}
-              >
-                <div
-                  style={{
-                    backgroundColor: "red",
-                    fontSize: "50px",
-                    height: "400px",
-                    width: "30vw",
-                    transition:
-                      "transform 0.5s ease-in-out, width 0.5s ease-in-out",
-                    transform: `scale(${offset === 0 ? 2 : 1})`,
-                  }}
-                >
-                  A
-                </div>
-                <div
-                  style={{
-                    backgroundColor: "green",
-                    fontSize: "50px",
-                    height: "400px",
-                    width: "30vw",
-                    transition:
-                      "transform 0.5s ease-in-out, width 0.5s ease-in-out",
-                    transform: `scale(${offset === -30 ? 2 : 1})`,
-                  }}
-                >
-                  B
-                </div>
-                <div
-                  style={{
-                    backgroundColor: "blue",
-                    fontSize: "50px",
-                    height: "400px",
-                    width: "30vw",
-                    transition:
-                      "transform 0.5s ease-in-out, width 0.5s ease-in-out",
-                    transform: `scale(${offset === -60 ? 2 : 1})`,
-                  }}
-                >
-                  C
-                </div>
+          <div className={styles.carousel}>
+            {isMobile ? (
+              <div className={styles.mobileContainer}>
+                {products &&
+                  products.map((product: React.ReactNode, index: number) => (
+                    <div
+                      className={styles.productMobileContainer}
+                      key={index}
+                      ref={(el) => (productRefs.current[index] = el)}
+                    >
+                      {product}
+                    </div>
+                  ))}
               </div>
-            </div>
-          </>
-          // FIN - test ici
+            ) : (
+              <>
+                {/* chevron left  */}
+                {offset <= -30 && (
+                  <div className={`${styles.button} ${styles.buttonPrevious}`}>
+                    <ArrowButton
+                      direction="previous"
+                      onClick={handleTestPreviousClick}
+                      // onClick={handlePrevClick}
+                    />
+                  </div>
+                )}
+                {/* chevron left  */}
+                {/* // le test est ici */}
+                <div
+                  className={styles.divsContainer}
+                  style={{
+                    width: "100vw",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    transform: `translateX(${offset + 30}vw)`,
+                    transition: "transform 0.5s ease-in-out",
+                  }}
+                >
+                  <div className={styles.prevOrNextDivContainer}>
+                    <div
+                      className={styles.prevOrNextDiv}
+                      style={{
+                        transition:
+                          "transform 0.5s ease-in-out, width 0.5s ease-in-out",
+                        transform: `scale(${offset === 0 ? 2 : 1})`,
+                      }}
+                    >
+                      {products[0]}
+                    </div>
+                  </div>
+                  <div className={styles.prevOrNextDivContainer}>
+                    <div
+                      className={styles.prevOrNextDiv}
+                      style={{
+                        transition:
+                          "transform 0.5s ease-in-out, width 0.5s ease-in-out",
+                        transform: `scale(${offset === -30 ? 2 : 1})`,
+                      }}
+                    >
+                      {products[1]}
+                    </div>
+                  </div>
+                  <div className={styles.prevOrNextDivContainer}>
+                    <div
+                      className={styles.prevOrNextDiv}
+                      style={{
+                        transition:
+                          "transform 0.5s ease-in-out, width 0.5s ease-in-out",
+                        transform: `scale(${offset === -60 ? 2 : 1})`,
+                      }}
+                    >
+                      {products[2]}
+                    </div>
+                  </div>
+                </div>
+                {/* le test finit ici */}
+                {/* chevron right  */}
+                {offset >= -30 && (
+                  <div className={`${styles.button} ${styles.buttonNext}`}>
+                    <ArrowButton
+                      direction="next"
+                      onClick={handleTestNextClick}
+                      // onClick={handleNextClick}
+                    />
+                  </div>
+                )}
+                {/* chevron right  */}
+              </>
+            )}
+          </div>
+
           {/* add to cart button  */}
           <div className={styles.addToCartButtonContainer}>
             <AddToCartButton
@@ -184,14 +219,6 @@ const TestCarousel: React.FC = () => {
                 setIsSidePanelOpen(true);
               }}
             />
-
-            {offset <= 0 && (
-              <button onClick={handleTestPreviousClick}>+=== Previous</button>
-            )}
-
-            {offset >= 0 && (
-              <button onClick={handleTestNextClick}>Next ===+</button>
-            )}
           </div>
           {/* add to cart button  */}
         </>
