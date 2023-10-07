@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "../styles/testCarousel.module.scss";
+import styles from "../styles/carousel.module.scss";
 import ArrowButton from "./arrowButton";
 import AddToCartButton from "./addToCartButton";
 import SidePanel from "@/components/sidePanel";
@@ -31,7 +31,7 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const TestCarousel: React.FC = () => {
+const Carousel: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -95,20 +95,6 @@ const TestCarousel: React.FC = () => {
     addItem(currentProduct);
   };
 
-  //  tests ici
-  const [offset, setOffset] = useState(0);
-
-  const handleTestNextClick = () => {
-    setOffset(offset - 30);
-    console.log("offset NextClick", offset);
-  };
-
-  const handleTestPreviousClick = () => {
-    setOffset(offset + 30);
-    console.log("offset", offset);
-    console.log("offset PreviousClick", offset);
-  };
-  //  tests ici
   // to detect the current product in mobile version
   return (
     <div>
@@ -131,73 +117,50 @@ const TestCarousel: React.FC = () => {
             ) : (
               <>
                 {/* chevron left  */}
-                {offset <= -30 && (
+                {currentItemIndex > 0 && (
                   <div className={`${styles.button} ${styles.buttonPrevious}`}>
                     <ArrowButton
                       direction="previous"
-                      onClick={handleTestPreviousClick}
-                      // onClick={handlePrevClick}
+                      onClick={handlePrevClick}
                     />
                   </div>
                 )}
                 {/* chevron left  */}
-                {/* // le test est ici */}
-                <div
-                  className={styles.divsContainer}
-                  style={{
-                    width: "100vw",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    transform: `translateX(${offset + 30}vw)`,
-                    transition: "transform 0.5s ease-in-out",
-                  }}
-                >
-                  <div className={styles.prevOrNextDivContainer}>
-                    <div
-                      className={styles.prevOrNextDiv}
-                      style={{
-                        transition:
-                          "transform 0.5s ease-in-out, width 0.5s ease-in-out",
-                        transform: `scale(${offset === 0 ? 2 : 1})`,
-                      }}
-                    >
-                      {products[0]}
+
+                {/* ---------------------------- */}
+
+                {/* previous dive */}
+                <div className={styles.prevOrNextDivContainer}>
+                  {currentItemIndex > 0 && (
+                    <div className={styles.prevOrNextDiv}>
+                      {products[currentItemIndex - 1]}
                     </div>
-                  </div>
-                  <div className={styles.prevOrNextDivContainer}>
-                    <div
-                      className={styles.prevOrNextDiv}
-                      style={{
-                        transition:
-                          "transform 0.5s ease-in-out, width 0.5s ease-in-out",
-                        transform: `scale(${offset === -30 ? 2 : 1})`,
-                      }}
-                    >
-                      {products[1]}
-                    </div>
-                  </div>
-                  <div className={styles.prevOrNextDivContainer}>
-                    <div
-                      className={styles.prevOrNextDiv}
-                      style={{
-                        transition:
-                          "transform 0.5s ease-in-out, width 0.5s ease-in-out",
-                        transform: `scale(${offset === -60 ? 2 : 1})`,
-                      }}
-                    >
-                      {products[2]}
-                    </div>
-                  </div>
+                  )}
                 </div>
-                {/* le test finit ici */}
+                {/* previous dive */}
+
+                {/* current dive */}
+                <div className={styles.currentDiv}>
+                  {products[currentItemIndex]}
+                </div>
+                {/* current dive */}
+
+                {/* next div */}
+                <div className={styles.prevOrNextDivContainer}>
+                  {currentItemIndex < products.length - 1 && (
+                    <div className={styles.prevOrNextDiv}>
+                      {products[currentItemIndex + 1]}
+                    </div>
+                  )}
+                </div>
+                {/* next div */}
+
+                {/* ---------------------------- */}
+
                 {/* chevron right  */}
-                {offset >= -30 && (
+                {currentItemIndex < products.length - 1 && (
                   <div className={`${styles.button} ${styles.buttonNext}`}>
-                    <ArrowButton
-                      direction="next"
-                      onClick={handleTestNextClick}
-                      // onClick={handleNextClick}
-                    />
+                    <ArrowButton direction="next" onClick={handleNextClick} />
                   </div>
                 )}
                 {/* chevron right  */}
@@ -242,4 +205,4 @@ const TestCarousel: React.FC = () => {
   );
 };
 
-export default TestCarousel;
+export default Carousel;

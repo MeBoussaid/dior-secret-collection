@@ -49,17 +49,6 @@ const Carousel: React.FC = () => {
 
   const { addItem, setIsSidePanelOpen, isSidePanelOpen } = useCart();
 
-  const [currentItemIndex, setCurrentItemIndex] = useState(0);
-
-  const handlePrevClick = () => {
-    setCurrentItemIndex(
-      (currentItemIndex - 1 + products.length) % products.length
-    );
-  };
-
-  const handleNextClick = () => {
-    setCurrentItemIndex((currentItemIndex + 1) % products.length);
-  };
   const { error, data } = useQuery(GET_PRODUCTS, { client });
 
   const products =
@@ -74,11 +63,10 @@ const Carousel: React.FC = () => {
         description={product.description}
         descriptionOnHover={product.descriptionOnHover}
         imageSrc={product.imageSrc}
-        isPrevOrNext={index !== currentItemIndex}
+        isPrevOrNext={true}
       />
     ));
 
-  // to detect the current product in mobile version
   const [visibleProductIndex, setVisibleProductIndex] = useState(0);
   const productRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -95,7 +83,19 @@ const Carousel: React.FC = () => {
     addItem(currentProduct);
   };
 
-  // to detect the current product in mobile version
+  const [offset, setOffset] = useState(0);
+
+  const handleTestNextClick = () => {
+    setOffset(offset - 100 / 3);
+    console.log("offset NextClick", offset);
+  };
+
+  const handleTestPreviousClick = () => {
+    setOffset(offset + 100 / 3);
+    console.log("offset", offset);
+    console.log("offset PreviousClick", offset);
+  };
+
   return (
     <div>
       {!error && products && products.length > 0 ? (
@@ -117,50 +117,93 @@ const Carousel: React.FC = () => {
             ) : (
               <>
                 {/* chevron left  */}
-                {currentItemIndex > 0 && (
+                {offset <= -(100 / 3) && (
                   <div className={`${styles.button} ${styles.buttonPrevious}`}>
                     <ArrowButton
                       direction="previous"
-                      onClick={handlePrevClick}
+                      onClick={handleTestPreviousClick}
                     />
                   </div>
                 )}
                 {/* chevron left  */}
 
-                {/* ---------------------------- */}
+                <div
+                  style={{
+                    width: "100vw",
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "flex-end",
+                    transform: `translateX(${offset + 100 / 3}vw)`,
+                    transition: "transform 0.5s ease-in-out",
+                  }}
+                >
+                  <div
+                    className={styles.prevOrNextDivContainer}
+                    ref={(el) => (productRefs.current[0] = el)}
+                  >
+                    <div
+                      className={styles.prevOrNextDiv}
+                      style={{
+                        filter: `blur(${offset != 0 ? 1 : 0}px)`,
+                        opacity: `${offset != 0 ? 0.5 : 1}`,
 
-                {/* previous dive */}
-                <div className={styles.prevOrNextDivContainer}>
-                  {currentItemIndex > 0 && (
-                    <div className={styles.prevOrNextDiv}>
-                      {products[currentItemIndex - 1]}
+                        transition:
+                          "transform 0.5s ease-in-out, width 0.5s ease-in-out,filter 0.5s ease-in-out, opacity 0.5s ease-in-out",
+                        transform: `scale(${offset === 0 ? 2 : 1})`,
+                        transformOrigin: `${offset === 0 && "bottom"}`,
+                      }}
+                    >
+                      {products[0]}
                     </div>
-                  )}
-                </div>
-                {/* previous dive */}
-
-                {/* current dive */}
-                <div className={styles.currentDiv}>
-                  {products[currentItemIndex]}
-                </div>
-                {/* current dive */}
-
-                {/* next div */}
-                <div className={styles.prevOrNextDivContainer}>
-                  {currentItemIndex < products.length - 1 && (
-                    <div className={styles.prevOrNextDiv}>
-                      {products[currentItemIndex + 1]}
+                  </div>
+                  <div
+                    className={styles.prevOrNextDivContainer}
+                    ref={(el) => (productRefs.current[1] = el)}
+                  >
+                    <div
+                      className={styles.prevOrNextDiv}
+                      style={{
+                        filter: `blur(${offset != -(100 / 3) ? 1 : 0}px)`,
+                        opacity: `${offset != -(100 / 3) ? 0.5 : 1}`,
+                        transition:
+                          "transform 0.5s ease-in-out, width 0.5s ease-in-out,filter 0.5s ease-in-out, opacity 0.5s ease-in-out",
+                        transform: `scale(${offset === -(100 / 3) ? 2 : 1})`,
+                        transformOrigin: `${offset === -(100 / 3) && "bottom"}`,
+                      }}
+                    >
+                      {products[1]}
                     </div>
-                  )}
+                  </div>
+                  <div
+                    className={styles.prevOrNextDivContainer}
+                    ref={(el) => (productRefs.current[2] = el)}
+                  >
+                    <div
+                      className={styles.prevOrNextDiv}
+                      style={{
+                        filter: `blur(${offset != -(2 * (100 / 3)) ? 1 : 0}px)`,
+                        opacity: `${offset != -(2 * (100 / 3)) ? 0.5 : 1}`,
+                        transition:
+                          "transform 0.5s ease-in-out, width 0.5s ease-in-out,filter 0.5s ease-in-out, opacity 0.5s ease-in-out",
+                        transform: `scale(${
+                          offset === -(2 * (100 / 3)) ? 2 : 1
+                        })`,
+                        transformOrigin: `${
+                          offset === -(2 * (100 / 3)) && "bottom"
+                        }`,
+                      }}
+                    >
+                      {products[2]}
+                    </div>
+                  </div>
                 </div>
-                {/* next div */}
-
-                {/* ---------------------------- */}
-
                 {/* chevron right  */}
-                {currentItemIndex < products.length - 1 && (
+                {offset >= -(100 / 3) && (
                   <div className={`${styles.button} ${styles.buttonNext}`}>
-                    <ArrowButton direction="next" onClick={handleNextClick} />
+                    <ArrowButton
+                      direction="next"
+                      onClick={handleTestNextClick}
+                    />
                   </div>
                 )}
                 {/* chevron right  */}
@@ -172,12 +215,7 @@ const Carousel: React.FC = () => {
           <div className={styles.addToCartButtonContainer}>
             <AddToCartButton
               onClick={() => {
-                if (isMobile) {
-                  handleMobileAddToCartClick();
-                } else {
-                  const currentProduct = products[currentItemIndex].props;
-                  addItem(currentProduct);
-                }
+                handleMobileAddToCartClick();
 
                 setIsSidePanelOpen(true);
               }}
@@ -193,7 +231,7 @@ const Carousel: React.FC = () => {
 
       {error && (
         <div className={styles.error}>
-          <p>Sorry, Something went wrong !</p>
+          <p>Sorry, something went wrong !</p>
         </div>
       )}
 

@@ -2,7 +2,6 @@
 
 .carousel {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
   width: 100vw;
   height: 65vh;
@@ -22,7 +21,6 @@
   }
 }
 
-// mobile and tablet
 .mobileContainer {
   display: flex;
 
@@ -62,8 +60,10 @@
   width: calc(45vw / 2);
   height: calc(25vw / 2);
   padding: 10px;
-  filter: blur(1px);
-  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
   @media (max-width: map-get($breakpoints, "iPad")) {
     filter: none;
     opacity: 1;
@@ -76,19 +76,13 @@
   height: 100%;
 }
 
-// .currentDiv,
-// .prevOrNextDivContainer,
-// .prevOrNextDiv {
-//   transition: width 1s ease-in-out, height 1s ease-in-out,
-//     padding 1s ease-in-out;
-// }
-
 .button {
   width: 100px;
   height: 100%;
   background-color: transparent;
   border: none;
   outline: none;
+  z-index: 1;
   cursor: pointer;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
@@ -99,7 +93,7 @@
 .buttonPrevious {
   position: absolute;
   top: 0;
-  left: 5vw;
+  left: 4vw;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
     display: none;
@@ -108,15 +102,14 @@
 .buttonNext {
   position: absolute;
   top: 0;
-  right: 5vw;
+  right: 4vw;
 }
 
 .addToCartButtonContainer {
-  padding: 10px;
+  padding: 1vh;
   width: 100%;
   display: flex;
   justify-content: center;
-  // background-color: turquoise;
   height: 15vh;
   position: relative;
   bottom: -30px;
@@ -169,3 +162,5 @@
   justify-content: center;
   align-items: center;
 }
+
+// test ici

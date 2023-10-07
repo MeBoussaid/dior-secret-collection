@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import HeaderConnected from "@/components/headerConnected";
-import Carousel from "@/components/carousel";
-import TestCarousel from "@/components/testCarousel";
+import Carousel from "@/components/oldCarousel";
+import TestCarousel from "@/components/carousel";
 
 const SecretCollection: React.FC = () => {
   return (
