@@ -67,13 +67,23 @@ const FilterAndSort: React.FC = () => {
           {/* chevrons div */}
           <div className={styles.filterMenuContent}>
             {showFilterMenu && (
-              <div>
-                {filterOptions.map((option) => (
-                  <span key={option.label} className={styles.filtersButton}>
-                    <span className={styles.icon}>{option.icon}</span>
-                    {option.label}
-                  </span>
-                ))}
+              <div className={styles.filtersMenu}>
+                <div>
+                  {filterOptions.slice(0, 2).map((option) => (
+                    <span key={option.label} className={styles.filtersButton}>
+                      <span className={styles.icon}>{option.icon}</span>
+                      {option.label}
+                    </span>
+                  ))}
+                </div>
+                <div>
+                  {filterOptions.slice(2, 5).map((option) => (
+                    <span key={option.label} className={styles.filtersButton}>
+                      <span className={styles.icon}>{option.icon}</span>
+                      {option.label}
+                    </span>
+                  ))}
+                </div>
               </div>
             )}
             {showSortMenu && (
