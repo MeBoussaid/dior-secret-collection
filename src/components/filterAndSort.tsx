@@ -32,32 +32,29 @@ const FilterAndSort: React.FC<Props> = ({ filterOptions }) => {
         <FiltersIcon />
         Filters
       </span>
-      {showFilterMenu && (
-        <div className={styles.filterMenu}>
-          {/* chevrons div */}
-          <div className={styles.chevronsContainer}>
-            <span className={styles.chevronFilters}>V</span>
-            <span className={styles.chevronSort}>V</span>
-          </div>
-          {/* chevrons div */}
-          <div className={styles.filterMenuContent}>
-            div styles.filterMenuContentvstyles.filterMenuContent d
-          </div>
-        </div>
-      )}
       <span className={styles.button} onClick={toggleSortMenu}>
         <SortIcon />
         Sort
       </span>
-      {/* {showSortMenu && (
-        <div className={styles.sortMenu}>
-          {sortOptions.map((option) => (
-            <div key={option} className={styles.sortOption}>
-              {option}
+      {(showFilterMenu || showSortMenu) && (
+        <div className={styles.filterMenu}>
+          {/* chevrons div */}
+          <div className={styles.chevronsContainer}>
+            <div className={styles.chevronFilters}>
+              {showFilterMenu && <span>V</span>}
             </div>
-          ))}
+
+            <div className={styles.chevronSort}>
+              {showSortMenu && <span>V</span>}
+            </div>
+          </div>
+          {/* chevrons div */}
+          <div className={styles.filterMenuContent}>
+            {showFilterMenu && <div>Filters content</div>}
+            {showSortMenu && <div>Sort content</div>}
+          </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 };
