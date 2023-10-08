@@ -1,6 +1,6 @@
 import React from "react";
 
-export const DownArrow: React.FC = () => {
+export const UpArrow: React.FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export const Men: React.FC = () => {
   );
 };
 
-export const Shirt: React.FC = () => {
+export const Shirts: React.FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

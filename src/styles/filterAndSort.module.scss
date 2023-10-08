@@ -58,7 +58,6 @@
   position: absolute;
   margin-top: 8px;
 
-  color: red;
   top: 100%;
   left: 0;
   width: 100%;
@@ -73,6 +72,8 @@
 
 .filterMenuContent {
   padding: 8px 16px;
+  background-color: aqua;
+  width: 100%;
 }
 
 //  same sizes as .filterAndSort
@@ -98,4 +99,38 @@
   display: flex;
   justify-content: center;
   background-color: green;
+}
+
+.sortMenu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  background-color: red;
+}
+.filtersButton {
+  font-size: 17px;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: black;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+  background-color: red;
 }

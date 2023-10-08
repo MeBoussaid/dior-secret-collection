@@ -4,16 +4,32 @@ import styles from "../styles/filterAndSort.module.scss";
 import SortIcon from "./icons/sortIcon";
 import FiltersIcon from "./icons/filtersIcon";
 
-interface Props {
-  filterOptions: string[];
+import {
+  UpArrow,
+  Women,
+  Men,
+  Shirts,
+  Bags,
+  Jewelry,
+} from "./icons/filtersIcons";
+
+interface FilterOption {
+  label: string;
+  icon: React.ReactNode;
 }
 
-const FilterAndSort: React.FC<Props> = ({ filterOptions }) => {
+const sortOptions = ["By price Asc", "By price Desc"];
+const filterOptions: FilterOption[] = [
+  { label: "Women", icon: <Women /> },
+  { label: "Men", icon: <Men /> },
+  { label: "Shirts", icon: <Shirts /> },
+  { label: "Bags", icon: <Bags /> },
+  { label: "Jewelry", icon: <Jewelry /> },
+];
+
+const FilterAndSort: React.FC = () => {
   const [showFilterMenu, setShowFilterMenu] = useState(false);
   const [showSortMenu, setShowSortMenu] = useState(false);
-  // test
-  const sortOptions = [" Low to High", "High to Low", "Rating"];
-  // test
 
   const toggleFilterMenu = () => {
     console.log("toggleFilterMenu");
@@ -41,17 +57,34 @@ const FilterAndSort: React.FC<Props> = ({ filterOptions }) => {
           {/* chevrons div */}
           <div className={styles.chevronsContainer}>
             <div className={styles.chevronFilters}>
-              {showFilterMenu && <span>V</span>}
+              {showFilterMenu && <UpArrow />}
             </div>
 
             <div className={styles.chevronSort}>
-              {showSortMenu && <span>V</span>}
+              {showSortMenu && <UpArrow />}
             </div>
           </div>
           {/* chevrons div */}
           <div className={styles.filterMenuContent}>
-            {showFilterMenu && <div>Filters content</div>}
-            {showSortMenu && <div>Sort content</div>}
+            {showFilterMenu && (
+              <div>
+                {filterOptions.map((option) => (
+                  <span key={option.label} className={styles.filtersButton}>
+                    <span className={styles.icon}>{option.icon}</span>
+                    {option.label}
+                  </span>
+                ))}
+              </div>
+            )}
+            {showSortMenu && (
+              <div className={styles.sortMenu}>
+                {sortOptions.map((option) => (
+                  <span key={option} className={styles.filtersButton}>
+                    {option}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}

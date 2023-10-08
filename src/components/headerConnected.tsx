@@ -46,7 +46,7 @@ const HeaderConnected: React.FC = () => {
           </div>
           {/* filters & sort  */}
           <div className={styles.headerFiltersContainer}>
-            <FilterAndSort filterOptions={["1", "2"]} />
+            <FilterAndSort />
           </div>
           {/* filters & sort  */}
         </div>
