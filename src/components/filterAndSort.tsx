@@ -34,8 +34,14 @@ const FilterAndSort: React.FC<Props> = ({ filterOptions }) => {
       </span>
       {showFilterMenu && (
         <div className={styles.filterMenu}>
+          {/* chevrons div */}
+          <div className={styles.chevronsContainer}>
+            <span className={styles.chevronFilters}>V</span>
+            <span className={styles.chevronSort}>V</span>
+          </div>
+          {/* chevrons div */}
           <div className={styles.filterMenuContent}>
-            div styles.filterMenuContentvstyles.filterMenuContent
+            div styles.filterMenuContentvstyles.filterMenuContent d
           </div>
         </div>
       )}

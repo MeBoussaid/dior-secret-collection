@@ -8,8 +8,7 @@
 
   width: 100%;
   max-width: 350px;
-  // padding-right: 100px;
-  // padding-left: 50px;
+
   padding-right: 20px;
   padding-left: 20px;
   justify-content: space-between;
@@ -55,43 +54,10 @@
   }
 }
 
-// ---------------
-// .filterMenu,
-// .sortMenu {
-//   background-color: #e6e6e6;
-//   border: 0.5px solid #ccc;
-//   border-radius: 4px;
-//   display: flex;
-//   flex-direction: column;
-//   position: absolute;
-//   z-index: 1;
-//   top: calc(90% - 500px);
-//   right: 100;
-// }
-
-// .filterMenu {
-//   top: 40px;
-// }
-
-// .sortMenu {
-//   top: 40px;
-// }
-
-// .filterOption,
-// .sortOption {
-//   color: #333;
-//   cursor: pointer;
-//   font-size: 16px;
-//   padding: 8px 16px;
-// }
-
-// .filterOption:hover,
-// .sortOption:hover {
-//   background-color: #f5f5f5;
-// }
-
 .filterMenu {
   position: absolute;
+  margin-top: 8px;
+
   color: red;
   top: 100%;
   left: 0;
@@ -100,8 +66,36 @@
   border: 1px solid #ccc;
   border-top: none;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .filterMenuContent {
   padding: 8px 16px;
+}
+
+//  same sizes as .filterAndSort
+.chevronsContainer {
+  width: 100%;
+  max-width: 350px;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: blue;
+}
+// same size as resulting from words "filters" and "sort" in browser .button
+.chevronFilters {
+  width: 114px;
+  display: flex;
+  justify-content: center;
+  background-color: green;
+}
+
+.chevronSort {
+  width: 86px;
+  display: flex;
+  justify-content: center;
+  background-color: green;
 }
