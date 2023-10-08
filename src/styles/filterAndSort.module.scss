@@ -1,7 +1,6 @@
 @import "breakpoints";
 
 .filterAndSort {
-  background-color: antiquewhite;
   display: flex;
   align-items: center;
   font-weight: 200;
@@ -30,7 +29,6 @@
 
 .button {
   background-color: transparent;
-  background-color: red;
   cursor: pointer;
   font-size: 23px;
   margin-bottom: 2px;
@@ -71,7 +69,6 @@
 
 .filterMenuContent {
   padding: 8px 16px;
-  background-color: aqua;
   width: 100%;
 }
 
@@ -79,25 +76,23 @@
 .chevronsContainer {
   width: 100%;
   max-width: 350px;
+  padding-top: 5px;
   padding-right: 20px;
   padding-left: 20px;
   display: flex;
   justify-content: space-between;
-  background-color: blue;
 }
 // same size as resulting from words "filters" and "sort" in browser .button
 .chevronFilters {
   width: 114px;
   display: flex;
   justify-content: center;
-  background-color: green;
 }
 
 .chevronSort {
   width: 86px;
   display: flex;
   justify-content: center;
-  background-color: green;
 }
 
 .sortMenu {
@@ -106,7 +101,6 @@
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  background-color: red;
 }
 .filtersMenu {
   display: flex;
@@ -138,5 +132,4 @@
   height: 15px;
   width: 15px;
   margin-right: 5px;
-  background-color: red;
 }
