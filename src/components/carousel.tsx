@@ -63,7 +63,7 @@ const Carousel: React.FC = () => {
         description={product.description}
         descriptionOnHover={product.descriptionOnHover}
         imageSrc={product.imageSrc}
-        isPrevOrNext={true}
+        isAnimated={index === 0 ? true : false}
       />
     ));
 

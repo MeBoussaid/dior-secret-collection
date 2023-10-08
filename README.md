@@ -40,7 +40,6 @@ I gave this test some parts of the weekend, can't give more in the week I am sti
 
 So I did the biggest part, but I still have to do the following next weekend if before the interview:
 
-- animate the carousel
 - unit tests ?
 
 <!-- -------------------------- -->

@@ -18,6 +18,23 @@
   }
 }
 
+.animatedCard {
+  position: relative;
+  left: -50px;
+  animation: ease-out-card 1000ms forwards;
+}
+
+@keyframes ease-out-card {
+  from {
+    left: -50px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
 .card:hover {
   width: 99.5%;
   height: 99.5%;
@@ -76,7 +93,7 @@
 
 .productDescription {
   color: #4b4b4b;
-  font-size: 15px;
+  font-size: 7px;
   font-style: italic;
   font-weight: 300;
   line-height: normal;
@@ -92,12 +109,6 @@
   }
 }
 
-.smallProductDescription {
-  @media (min-width: map-get($breakpoints, "iPad")) {
-    font-size: 7px;
-  }
-}
-
 .productSpecifications {
   padding-right: 3%;
   padding-bottom: 3%;
@@ -109,25 +120,38 @@
 
 .productName {
   color: #000;
-  font-size: 32px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 100;
   line-height: normal;
   text-transform: uppercase;
   margin-bottom: 8%;
+
   @media (max-width: map-get($breakpoints, "iPhone")) {
     font-size: 19px;
   }
 }
-.smallProductName {
-  @media (min-width: map-get($breakpoints, "iPad")) {
-    font-size: 12px;
+
+.animatedName {
+  position: relative;
+  left: -30px;
+  animation: ease-out-name 900ms forwards;
+}
+
+@keyframes ease-out-name {
+  from {
+    left: -30px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
   }
 }
 
 .productPrice {
   color: #000;
-  font-size: 20px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 100;
   line-height: normal;
@@ -136,8 +160,19 @@
   }
 }
 
-.smallProductPrice {
-  @media (min-width: map-get($breakpoints, "iPad")) {
-    font-size: 12px;
+.animatedPrice {
+  position: relative;
+  left: -35px;
+  animation: ease-out-price 800ms forwards;
+}
+
+@keyframes ease-out-price {
+  from {
+    left: -35px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
   }
 }
