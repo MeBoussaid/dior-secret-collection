@@ -16,6 +16,7 @@ const FilterAndSort: React.FC<Props> = ({ filterOptions }) => {
   // test
 
   const toggleFilterMenu = () => {
+    console.log("toggleFilterMenu");
     setShowFilterMenu(!showFilterMenu);
     setShowSortMenu(false);
   };
@@ -31,15 +32,13 @@ const FilterAndSort: React.FC<Props> = ({ filterOptions }) => {
         <FiltersIcon />
         Filters
       </span>
-      {/* {showFilterMenu && (
+      {showFilterMenu && (
         <div className={styles.filterMenu}>
-          {filterOptions.map((option) => (
-            <div key={option} className={styles.filterOption}>
-              {option}
-            </div>
-          ))}
+          <div className={styles.filterMenuContent}>
+            div styles.filterMenuContentvstyles.filterMenuContent
+          </div>
         </div>
-      )} */}
+      )}
       <span className={styles.button} onClick={toggleSortMenu}>
         <SortIcon />
         Sort

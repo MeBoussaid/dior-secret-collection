@@ -1,8 +1,9 @@
 @import "breakpoints";
 
 .headerConnected {
-  height: 20vh;
-  background-color: transparent;
+  background-color: aqua;
+  height: 22vh;
+  // background-color: transparent;
   display: flex;
   flex-direction: column;
 
@@ -88,6 +89,7 @@
   position: relative;
   bottom: -30px;
   animation: ease-out-filters 900ms forwards;
+  background-color: lightgreen;
 
   @media (max-width: map-get($breakpoints, "iPhone")) {
     width: 100vw;
