@@ -34,12 +34,17 @@ COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build
 docker-compose up
 ```
 
-<!--👉  reste à faire  -->
+<!-- ℹ️ what was done but not existant in the maquette  -->
+
+- some styles adapted or interpreted because they were in absolute values
+- error messages, loading states and messages, 'cart is empty' message etc.
+- page titles
+
+<!--👉  Possible improvements  -->
 
 I gave this test some parts of the weekend, can't give more in the week I am still in a current mission.
 
-So I did the biggest part, but I still have to do the following next weekend if before the interview:
-
 - unit tests ?
+- make the carousel in a way to accept any number of articles, now I made a sort of POC that accepts only 3 articles due to lack of time, but the solution can be generalized
 
 <!-- -------------------------- -->
