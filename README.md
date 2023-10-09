@@ -34,6 +34,13 @@ COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build
 docker-compose up
 ```
 
+## Build and start built app locally
+
+```zsh
+npm run build
+npm run start
+```
+
 <!-- ℹ️ what was done but not existant in the maquette  -->
 
 - some styles adapted or interpreted because they were in absolute values
@@ -45,3 +52,7 @@ docker-compose up
 - make the carousel in a way to accept any number of articles, now I made a sort of POC that accepts only 3 articles due to lack of time, but the solution can be generalized
 
 <!-- -------------------------- -->
+
+```
+
+```

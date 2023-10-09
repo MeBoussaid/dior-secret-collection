@@ -1,11 +1,7 @@
 import { ApolloServer, gql } from "apollo-server-micro";
 import Cors from "micro-cors";
 
-const cors = Cors({
-  allowMethods: ["GET", "POST", "OPTIONS"],
-  allowHeaders: ["Content-Type", "Authorization"],
-  origin: "https://main.ds8lkanha4tdu.amplifyapp.com",
-});
+const cors = Cors();
 
 const typeDefs = gql`
   type User {
