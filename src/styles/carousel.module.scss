@@ -7,6 +7,7 @@
   height: 65vh;
   position: relative;
   padding-bottom: 10px;
+  // background-color: green;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
     height: 60vw;

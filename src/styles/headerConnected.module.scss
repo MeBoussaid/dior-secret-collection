@@ -93,6 +93,7 @@
   @media (max-width: map-get($breakpoints, "iPhone")) {
     width: 100vw;
     justify-content: center;
+    margin-right: 0px;
   }
 }
 
