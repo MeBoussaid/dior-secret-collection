@@ -83,8 +83,9 @@
 
 .buttonPrevious {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 4vw;
+  height: 80%;
 
   @media (max-width: map-get($breakpoints, "iPad")) {
     display: none;
@@ -92,8 +93,9 @@
 }
 .buttonNext {
   position: absolute;
-  top: 0;
+  bottom: 0px;
   right: 4vw;
+  height: 80%;
 }
 
 .addToCartButtonContainer {

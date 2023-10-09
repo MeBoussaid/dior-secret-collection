@@ -223,15 +223,13 @@ const Carousel: React.FC = () => {
           </div>
           {/* add to cart button  */}
         </>
+      ) : error ? (
+        <div className={styles.error}>
+          <p>Sorry, something went wrong !</p>
+        </div>
       ) : (
         <div className={styles.loading}>
           <p>Loading ...</p>
-        </div>
-      )}
-
-      {error && (
-        <div className={styles.error}>
-          <p>Sorry, something went wrong !</p>
         </div>
       )}
 

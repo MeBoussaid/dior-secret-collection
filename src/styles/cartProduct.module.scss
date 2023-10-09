@@ -9,6 +9,7 @@
 // card is 90% and deleteContainer is 10%
 .card {
   width: 90%;
+  max-width: 300px;
   height: 200px;
   display: flex;
   justify-content: space-between;

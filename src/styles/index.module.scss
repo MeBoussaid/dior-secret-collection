@@ -84,8 +84,8 @@
   }
 
   @media (max-width: map-get($breakpoints, "iPhone")) {
-    margin-top: 177px;
-    margin-left: -33px;
+    margin-left: 30px;
+    animation: none;
   }
 }
 
@@ -122,7 +122,9 @@
     align-items: center;
   }
   @media (max-width: map-get($breakpoints, "iPhone")) {
-    padding-left: 94px;
+    justify-content: center;
+    margin-left: 0px;
+    padding-left: 0px;
   }
 }
 
