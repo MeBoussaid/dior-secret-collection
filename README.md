@@ -42,9 +42,6 @@ docker-compose up
 
 <!--👉  Possible improvements  -->
 
-I gave this test some parts of the weekend, can't give more in the week I am still in a current mission.
-
-- unit tests ?
 - make the carousel in a way to accept any number of articles, now I made a sort of POC that accepts only 3 articles due to lack of time, but the solution can be generalized
 
 <!-- -------------------------- -->
