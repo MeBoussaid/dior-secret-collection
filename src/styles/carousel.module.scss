@@ -19,6 +19,8 @@
     height: 70vw;
     width: 100%;
     overflow-x: scroll;
+    // very importnat to avoid overlap of carousel and filter menu
+    position: unset;
   }
 }
 

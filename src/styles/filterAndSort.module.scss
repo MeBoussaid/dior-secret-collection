@@ -67,7 +67,11 @@
   align-items: center;
   padding-bottom: 10px;
   padding-left: 20px;
-  // background-color: red;
+
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    margin-top: 5px;
+    min-height: 0px;
+  }
 }
 
 .filterMenuContent {
@@ -85,6 +89,9 @@
   padding-bottom: 15px;
   display: flex;
   justify-content: space-between;
+  @media (max-width: map-get($breakpoints, "iPhone")) {
+    padding-bottom: 3px;
+  }
 }
 // same size as resulting from words "filters" and "sort" in browser .button
 .chevronFilters {
