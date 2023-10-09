@@ -44,10 +44,11 @@ const HeaderConnected: React.FC = () => {
               THE SECRET COLLECTION
             </span>
           </div>
-
+          {/* filters & sort  */}
           <div className={styles.headerFiltersContainer}>
-            <FilterAndSort filterOptions={["1", "2"]} />
+            <FilterAndSort />
           </div>
+          {/* filters & sort  */}
         </div>
       </div>
     </header>
