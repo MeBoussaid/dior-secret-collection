@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import styles from "../styles/sidePanel.module.scss";
 import { useCart } from "../../stores/CartStore";
 import CartIcon from "./icons/cartIcon";
@@ -44,6 +44,16 @@ const SidePanel: React.FC<SidePanelProps> = ({ isOpen, onClose }) => {
       onClose();
     }
   };
+  // block background scroll when side panel is open
+  useLayoutEffect(() => {
+    console.log(isOpen);
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+  // block background scroll when side panel is open
 
   const cartItemsById = items.reduce<{ [id: string]: item }>((items, item) => {
     items[item.id] = { ...item, quantity: 1 };

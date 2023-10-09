@@ -51,6 +51,8 @@ npm run start
 
 - make the carousel in a way to accept any number of articles, now I made a sort of POC that accepts only 3 articles due to lack of time, but the solution can be generalized
 
+- could have used static generation in next js for the products shown in carousel, but assumed that products in secret collection could change fast, so why not query the 'mock' data every time
+
 <!-- -------------------------- -->
 
 ```

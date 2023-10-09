@@ -120,6 +120,7 @@
 }
 .deleteButton {
   padding-bottom: 3px;
+  cursor: pointer;
 }
 
 .itemsCount {
@@ -129,6 +130,10 @@
   text-transform: uppercase;
   margin-left: 2px;
   margin-right: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   @media (max-width: map-get($breakpoints, "iPad")) {
     font-size: 17px;
   }
@@ -141,21 +146,25 @@
   display: flex;
   align-items: center;
 }
+
 .quantityButton {
-  color: #969696;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 100;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
-  position: relative;
+  border-radius: 50%;
+  border: 1px solid #969696;
+  transition: all 0.2s ease-in-out;
+  flex-shrink: 0;
   margin: 2px;
 
-  .quantitySigne {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  .quantityIcon {
+    font-size: 15px;
+    color: #969696;
+    line-height: 1;
   }
 }
