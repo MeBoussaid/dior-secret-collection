@@ -18,6 +18,8 @@
     height: 70vw;
     width: 100%;
     overflow-x: scroll;
+    // very important to avoid overlap of carousel and filter menu
+    position: unset;
   }
 }
 
@@ -44,17 +46,6 @@
 }
 
 // FIN - mobile and tablet
-
-.currentDiv {
-  width: 45vw;
-  height: 25vw;
-  padding: 10px;
-
-  @media (max-width: map-get($breakpoints, "iPad")) {
-    width: 90vw;
-    height: 50vw;
-  }
-}
 
 .prevOrNextDivContainer {
   width: calc(45vw / 2);
