@@ -72,7 +72,7 @@ const CartIcon: React.FC<SvgIconProps> = ({
         cursor: isClickable ? "pointer" : "default",
         display: "flex",
         justifyContent: "center",
-        alignItems: "end",
+        alignItems: "flex-end",
       }}
     >
       {showsCounts && cartItemsCount != 0 && (
