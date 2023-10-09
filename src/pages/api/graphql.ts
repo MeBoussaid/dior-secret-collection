@@ -25,9 +25,9 @@ const typeDefs = gql`
 `;
 
 const users = [
-  { email: "maeva.ghennam@mail.com", password: "23dd56TY" },
-  { email: "lalla.smith@mail.com", password: "09Zs76YU" },
-  { email: "ba.johnson@mail.com", password: "23Z30ssd" },
+  { email: "eva@mail.com", password: "23dd56TY" },
+  { email: "lola@mail.com", password: "09Zs76YU" },
+  { email: "ben@mail.com", password: "23Z30ssd" },
 ];
 
 const products = [
