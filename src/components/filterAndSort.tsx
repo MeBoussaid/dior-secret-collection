@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "../styles/filterAndSort.module.scss";
 
 import SortIcon from "./icons/sortIcon";
@@ -30,6 +30,7 @@ const filterOptions: FilterOption[] = [
 const FilterAndSort: React.FC = () => {
   const [showFilterMenu, setShowFilterMenu] = useState(false);
   const [showSortMenu, setShowSortMenu] = useState(false);
+  const filterMenuRef = useRef<HTMLDivElement>(null);
 
   const toggleFilterMenu = () => {
     console.log("toggleFilterMenu");
@@ -42,6 +43,23 @@ const FilterAndSort: React.FC = () => {
     setShowFilterMenu(false);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      filterMenuRef.current &&
+      !filterMenuRef.current.contains(event.target as Node)
+    ) {
+      setShowFilterMenu(false);
+      setShowSortMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className={styles.filterAndSort}>
       <span className={styles.button} onClick={toggleFilterMenu}>
@@ -53,7 +71,7 @@ const FilterAndSort: React.FC = () => {
         Sort
       </span>
       {(showFilterMenu || showSortMenu) && (
-        <div className={styles.filterMenu}>
+        <div className={styles.filterMenu} ref={filterMenuRef}>
           {/* chevrons div */}
           <div className={styles.chevronsContainer}>
             <div className={styles.chevronFilters}>
