@@ -1,3 +1,5 @@
+import * as intl from "intl";
+
 export function formatPrice(price: number): string {
   return price.toLocaleString("fr-FR", {
     style: "currency",

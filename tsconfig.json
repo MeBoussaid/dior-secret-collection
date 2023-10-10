@@ -23,7 +23,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/textField.tsx"
+    "src/components/textField.tsx",
+    "src/helpers/helpers.test.ts"
   ],
   "exclude": ["node_modules"]
 }
