@@ -16,6 +16,7 @@
 
 .panel {
   width: 35%;
+  min-width: 400px;
   height: 100%;
   background-color: #ffffff;
   display: flex;
@@ -38,6 +39,7 @@
     width: 60%;
   }
   @media (max-width: map-get($breakpoints, "iPhone")) {
+    min-width: none;
     width: 95%;
   }
 }

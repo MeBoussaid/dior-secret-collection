@@ -85,12 +85,12 @@ const Carousel: React.FC = () => {
 
   const [offset, setOffset] = useState(0);
 
-  const handleTestNextClick = () => {
+  const handleNextClick = () => {
     setOffset(offset - 100 / 3);
     console.log("offset NextClick", offset);
   };
 
-  const handleTestPreviousClick = () => {
+  const handlePreviousClick = () => {
     setOffset(offset + 100 / 3);
     console.log("offset", offset);
     console.log("offset PreviousClick", offset);
@@ -121,7 +121,7 @@ const Carousel: React.FC = () => {
                   <div className={`${styles.button} ${styles.buttonPrevious}`}>
                     <ArrowButton
                       direction="previous"
-                      onClick={handleTestPreviousClick}
+                      onClick={handlePreviousClick}
                     />
                   </div>
                 )}
@@ -200,10 +200,7 @@ const Carousel: React.FC = () => {
                 {/* chevron right  */}
                 {offset >= -(100 / 3) && (
                   <div className={`${styles.button} ${styles.buttonNext}`}>
-                    <ArrowButton
-                      direction="next"
-                      onClick={handleTestNextClick}
-                    />
+                    <ArrowButton direction="next" onClick={handleNextClick} />
                   </div>
                 )}
                 {/* chevron right  */}
@@ -216,7 +213,6 @@ const Carousel: React.FC = () => {
             <AddToCartButton
               onClick={() => {
                 handleMobileAddToCartClick();
-
                 setIsSidePanelOpen(true);
               }}
             />

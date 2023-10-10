@@ -4,7 +4,7 @@ import CartIcon from "@/components/icons/cartIcon";
 import styles from "../styles/headerConnected.module.scss";
 import TheKey from "@/components/icons/theKey";
 import { breakpoints } from "../styles/breakpoints";
-
+import Link from "next/link";
 import FilterAndSort from "@/components/filterAndSort";
 
 const HeaderConnected: React.FC = () => {
@@ -24,9 +24,11 @@ const HeaderConnected: React.FC = () => {
   return (
     <header className={styles.headerConnected}>
       <div className={styles.headerSup}>
-        <div className={styles.logoContainer}>
-          <Logo size={isSmallScreen ? "small" : "normal"} />
-        </div>
+        <Link href="/">
+          <div className={styles.logoContainer}>
+            <Logo size={isSmallScreen ? "small" : "normal"} />
+          </div>
+        </Link>
         <div className={styles.cartIconContainer}>
           <CartIcon
             size={isSmallScreen ? "small" : "normal"}
