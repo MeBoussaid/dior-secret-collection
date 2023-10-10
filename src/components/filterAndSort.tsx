@@ -64,11 +64,23 @@ const FilterAndSort: React.FC = () => {
     <div className={styles.filterAndSort}>
       <span className={styles.button} onClick={toggleFilterMenu}>
         <FiltersIcon />
-        Filters
+        <span
+          className={`${styles.buttonText} ${
+            showFilterMenu ? styles.active : ""
+          }`}
+        >
+          Filters
+        </span>
       </span>
       <span className={styles.button} onClick={toggleSortMenu}>
         <SortIcon />
-        Sort
+        <span
+          className={`${styles.buttonText} ${
+            showSortMenu ? styles.active : ""
+          }`}
+        >
+          Sort
+        </span>
       </span>
       {(showFilterMenu || showSortMenu) && (
         <div className={styles.filterMenu} ref={filterMenuRef}>
@@ -107,7 +119,10 @@ const FilterAndSort: React.FC = () => {
             {showSortMenu && (
               <div className={styles.sortMenu}>
                 {sortOptions.map((option) => (
-                  <span key={option} className={styles.filtersButton}>
+                  <span
+                    key={option}
+                    className={`${styles.filtersButton} ${styles.buttonText}`}
+                  >
                     {option}
                   </span>
                 ))}
